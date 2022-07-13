@@ -1,13 +1,24 @@
 //Global Styles
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
-}
-
-body {
-  height: 100%;
 }
 
 html {
   font-size: 62.5%;
+}
+
+html * {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  background-image: radial-gradient(circle at center,white, hsl(192, 100%, 50%));
+  background-size: 200% 200%;
+  background-position: 50% 10%;
+  position: relative;
 }
 //------------------------------->
