@@ -32,4 +32,38 @@ body {
   box-shadow: 0 0 50px 50px yellow;
 }
 
+.animate-sun {
+  animation: animate-sun 60s linear infinite;
+}
+
+@keyframes animate-sun {
+  0% {
+    transform: translate(0, 0%);
+  }
+  12% {
+    transform: translate(25vw, -15%);
+  }
+  24% {
+    transform: translate(50vw, -30%);
+  }
+  36% {
+    transform: translate(75vw, -15%);
+  }
+  48% {
+    transform: translate(100vw, 0%);
+  }
+  60% {
+    transform: translate(75vw, -15%);
+  }
+  72% {
+    transform: translate(50vw, -30%);
+  }
+  84% {
+    transform: translate(25vw, -15%);
+  }
+  96% {
+    transform: translate(0, 0%);
+  }
+}
+
 /*# sourceMappingURL=styles.css.map */
