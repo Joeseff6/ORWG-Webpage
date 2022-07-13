@@ -21,4 +21,15 @@ body {
   background-position: 50% 10%;
   position: relative;
 }
+
+.sun {
+  position: absolute;
+  top: -25rem;
+  left: -25rem;
+  background-color: yellow;
+  width: 50rem;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  box-shadow: 0 0 50px 50px yellow;
+}
 //------------------------------->
