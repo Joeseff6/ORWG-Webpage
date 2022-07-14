@@ -8,7 +8,7 @@
 }
 
 * {
-  outline: 1px solid white;
+  // outline: 1px solid white;
 }
 
 html {
@@ -32,7 +32,58 @@ body {
 }
 //------------------------------->
 
+// Main Page Styling
+
+.admin-link {
+  position: fixed;
+  top: 2rem;
+  right: 2rem;
+  font-size: variables.$normal-fs;
+}
+
+.main-header {
+  margin-top: 7rem;
+  text-align: center;
+  font-size: variables.$largest-fs;
+  font-style: italic;
+  font-weight: 400;
+  .page-title {
+    font-weight: 400;
+  }
+}
+
 // Utilities
+.highlight-text {
+  -webkit-background-clip: text;
+  color: transparent;
+  padding-right: 1rem;
+  background-image: linear-gradient(to left top, #2533B6, white, #2533B6);
+  background-size: 500% 500%;
+  animation: highlight-text 10s linear infinite;
+}
+
+@keyframes highlight-text {
+  0% {
+    background-position: 0 0;
+  }
+  
+  45% {
+    background-position: 0 0;
+  }
+  
+  50% {
+    background-position: 100% 100%;
+  }
+
+  55% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 0 0;
+  }
+}
+
 .sun {
   position: absolute;
   top: -25rem;
@@ -87,23 +138,3 @@ body {
   }
 }
 //------------------------------->
-
-// Main Page Styling
-
-.admin-link {
-  position: fixed;
-  top: 2rem;
-  right: 2rem;
-  font-size: variables.$normal-fs;
-}
-
-.main-header {
-  margin-top: 10rem;
-  text-align: center;
-  font-size: variables.$largest-fs;
-  font-style: italic;
-  font-weight: 400;
-  .page-title {
-    font-weight: 400;
-  }
-}
