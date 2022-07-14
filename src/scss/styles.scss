@@ -1,3 +1,4 @@
+@use "variables";
 //Global Styles
 *,
 *::before,
@@ -26,7 +27,9 @@ body {
   position: relative;
   overflow-x: hidden;
 }
+//------------------------------->
 
+// Utilities
 .sun {
   position: absolute;
   top: -25rem;
@@ -81,3 +84,18 @@ body {
   }
 }
 //------------------------------->
+
+// Main Page Styling
+
+.admin-link {
+  position: fixed;
+  top: 2rem;
+  right: 2rem;
+  font-size: variables.$normal-fs;
+}
+
+.main-header {
+  margin-top: 10rem;
+  text-align: center;
+  font-size: variables.$largest-fs;
+}

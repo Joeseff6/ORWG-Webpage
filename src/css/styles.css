@@ -71,5 +71,17 @@ body {
     transform: translate(0, 0%);
   }
 }
+.admin-link {
+  position: fixed;
+  top: 2rem;
+  right: 2rem;
+  font-size: 2rem;
+}
+
+.main-header {
+  margin-top: 10rem;
+  text-align: center;
+  font-size: 3.2rem;
+}
 
 /*# sourceMappingURL=styles.css.map */
