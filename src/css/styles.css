@@ -79,6 +79,7 @@ label[for=search] {
   gap: 3rem;
 }
 .pagination-container .button {
+  cursor: pointer;
   padding: 0.5rem 1rem;
   background-color: white;
   border: 1px solid #2533B6;
