@@ -1,4 +1,5 @@
 @use "variables";
+@import url('https://fonts.googleapis.com/css2?family=Cardo&display=swap');
 //Global Styles
 *,
 *::before,
@@ -12,6 +13,8 @@
 
 html {
   font-size: 62.5%;
+  font-family: 'Cardo', serif;
+  color: #2533B6;
 }
 
 html * {
@@ -98,4 +101,9 @@ body {
   margin-top: 10rem;
   text-align: center;
   font-size: variables.$largest-fs;
+  font-style: italic;
+  font-weight: 400;
+  .page-title {
+    font-weight: 400;
+  }
 }
