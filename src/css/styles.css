@@ -43,6 +43,13 @@ body {
   font-weight: 400;
 }
 
+.main-content {
+  margin-top: 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
 .highlight-text {
   -webkit-background-clip: text;
   color: transparent;

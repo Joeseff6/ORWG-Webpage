@@ -52,6 +52,14 @@ body {
   }
 }
 
+
+.main-content {
+  margin-top: 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
 // Utilities
 .highlight-text {
   -webkit-background-clip: text;
