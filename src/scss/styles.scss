@@ -81,6 +81,21 @@ label[for=search] {
   padding: 0.5rem 0 0.5rem 1rem;
 }
 
+.pagination-container {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  .button {
+    padding: 0.5rem 1rem;
+    background-color: white;
+    border: 1px solid #2533B6;
+    border-radius: 5px;
+    i {
+      color: #2533B6;
+    }
+  }
+}
+
 // Utilities
 .flex-col-center {
   display: flex;
