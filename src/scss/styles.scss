@@ -92,13 +92,13 @@ label[for=search] {
   gap: 2rem;
   .button {
     cursor: pointer;
-    padding: 0.5rem 1rem;
     background-color: white;
     border: 1px solid #2533B6;
     border-radius: 5px;
-    i {
-      color: #2533B6;
-    }
+    color: #2533B6;
+  }
+  .button.right, .button.left {
+    padding: 0.5rem 1rem;
   }
 }
 
@@ -108,10 +108,14 @@ label[for=search] {
   justify-content: center;
   gap: 0.5rem;
   .button.page {
-    min-width: 36px;
+    min-width: 30px;
     aspect-ratio: 1 / 1;
+    font-size: variables.$smaller-fs;
+    font-weight: 600;
   }
 }
+
+
 
 // Utilities
 .close {
