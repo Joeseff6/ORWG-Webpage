@@ -45,7 +45,7 @@ a {
   position: fixed;
   top: 2rem;
   right: 2rem;
-  font-size: variables.$normal-fs;
+  font-size: clamp(variables.$small-fs, 3vw, variables.$normal-fs);
   letter-spacing: 1.5px;
 }
 
@@ -72,20 +72,21 @@ a {
 
 label[for=search] {
   text-align: center;
-  font-size: variables.$large-fs;
+  font-size: clamp(variables.$normal-fs, 3vw, variables.$large-fs);
 }
 
 #search {
   color: #2533B6;
   font-family: 'Cardo', serif;
-  width: clamp(30rem, 50%,40rem);
-  font-size: variables.$normal-fs;
+  width: clamp(25rem, 50%,40rem);
+  font-size: clamp(variables.$smaller-fs, 3vw, variables.$normal-fs);
   border: 1px solid gray;
   border-radius: 100vmax;
   padding: 0.5rem 0 0.5rem 1rem;
 }
 
 .pagination-container {
+  padding: 0 2rem;
   display: flex;
   align-items: center;
   gap: 3rem;
@@ -210,7 +211,7 @@ label[for=search] {
 
 .question-answer-container > p {
   text-align: center;
-  font-size: clamp(2rem, 3vw, 2.4rem);
+  font-size: clamp(variables.$normal-fs, 3vw, variables.$large-fs);
   margin-bottom: 3rem;
 }
 
@@ -231,12 +232,12 @@ label[for=search] {
   position: absolute;
   top: 0.5rem;
   right: 1rem;
-  font-size: clamp(1.2rem, 3vw, 1.6rem);
+  font-size: clamp(variables.$smaller-fs, 3vw, variables.$small-fs);
   font-weight: 800;
 }
 
 .question {
-  font-size: clamp(2rem, 2vw,2.4rem)
+  font-size: clamp(variables.$normal-fs, 2vw, variables.$large-fs);
 }
 
 .question::before {
@@ -253,11 +254,11 @@ label[for=search] {
 }
 
 .answer {
-  font-size: clamp(1.6rem, 2vw,2rem)
+  font-size: clamp(variables.$small-fs, 2vw, variables.$normal-fs);
 }
 
 .answer::before {
-  content: "Answer ";
+  content: "Answer: ";
 }
 
 //------------------------------->
