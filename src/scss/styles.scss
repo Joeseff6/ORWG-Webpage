@@ -8,6 +8,8 @@
   box-sizing: border-box;
 }
 
+// TODO: Delete outline rule below
+
 * {
   // outline: 1px solid white;
 }
@@ -101,6 +103,10 @@ label[for=search] {
 // Utilities
 .close {
   transform: translateY(-100%);
+}
+
+.hide {
+  display: none;
 }
 
 .flex-col-center {

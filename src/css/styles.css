@@ -166,6 +166,10 @@ label[for=search] {
   transform: translateY(-100%);
 }
 
+.hide {
+  display: none;
+}
+
 .flex-col-center {
   display: flex;
   flex-direction: column;
