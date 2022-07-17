@@ -164,6 +164,17 @@ label[for=search] {
   color: #2533B6;
 }
 
+.pagination-numbers {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+}
+.pagination-numbers .button.page {
+  min-width: 36px;
+  aspect-ratio: 1/1;
+}
+
 .close {
   transform: translateY(-100%);
 }
