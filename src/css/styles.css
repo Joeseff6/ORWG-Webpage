@@ -89,6 +89,10 @@ label[for=search] {
   color: #2533B6;
 }
 
+.close {
+  transform: translateY(-100%);
+}
+
 .flex-col-center {
   display: flex;
   flex-direction: column;

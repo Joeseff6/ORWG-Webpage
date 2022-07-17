@@ -98,6 +98,10 @@ label[for=search] {
 }
 
 // Utilities
+.close {
+  transform: translateY(-100%);
+}
+
 .flex-col-center {
   display: flex;
   flex-direction: column;
@@ -189,3 +193,4 @@ label[for=search] {
   }
 }
 //------------------------------->
+
