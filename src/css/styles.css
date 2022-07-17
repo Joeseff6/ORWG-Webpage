@@ -2,7 +2,7 @@
 .login-header {
   text-align: center;
   padding-top: 7rem;
-  font-size: clamp(2.2rem, 3vw, 3.2rem);
+  font-size: clamp(2rem, 3vw, 3.2rem);
   gap: 2rem;
 }
 
@@ -39,10 +39,6 @@
   margin-bottom: 3rem;
 }
 
-#login-form label {
-  font-size: clamp(1.6rem, 2vw, 2.4rem);
-}
-
 #login-form label input {
   padding: 0.5rem 1rem;
   margin-left: 1rem;
@@ -68,6 +64,13 @@ button[type=submit]:hover {
   background-color: hsl(192deg, 100%, 50%);
 }
 
+.error-box,
+#login-form label input,
+button[type=submit] {
+  font-size: clamp(1.2rem, 1.5vw, 1.6rem);
+}
+
+#login-form label,
 .login-container a {
   font-size: clamp(1.6rem, 2vw, 2.4rem);
   color: #2533B6;

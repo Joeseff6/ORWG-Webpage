@@ -1,7 +1,9 @@
+@use "variables";
+
 .login-header {
   text-align: center;
   padding-top: 7rem;
-  font-size: clamp(2.2rem, 3vw, 3.2rem);
+  font-size: clamp(variables.$normal-fs, 3vw, variables.$largest-fs);
   gap: 2rem;
 }
 
@@ -30,7 +32,7 @@
   border-radius: 5px;
   color: red;
   background-color: hsl(0, 50%, 50%, 0.15);
-  font-size: clamp(1.2rem, 1.5vw, 1.6rem);
+  font-size: clamp(variables.$smaller-fs, 1.5vw, variables.$small-fs);
 }
 
 #login-form {
@@ -38,14 +40,10 @@
   margin-bottom: 3rem;
 }
 
-#login-form label {
-  font-size: clamp(1.6rem, 2vw, 2.4rem);
-}
-
 #login-form label input {
   padding: 0.5rem 1rem;
   margin-left: 1rem;
-  font-size: clamp(1.2rem, 1.5vw, 1.6rem);
+  font-size: clamp(variables.$smaller-fs, 1.5vw, variables.$small-fs);
   border: 1px solid #2533B6;
   border-radius: 5px;
 }
@@ -55,7 +53,7 @@ button[type=submit] {
   padding: 1rem 5rem;
   background-color: hsl(192, 100%, 80%);
   font-family: "Cardo", serif;
-  font-size: clamp(1.2rem, 1.5vw, 1.6rem);
+  font-size: clamp(variables.$smaller-fs, 1.5vw, variables.$small-fs);
   font-weight: 800;
   letter-spacing: 1.5px;
   border-radius: 100vmax;
@@ -67,7 +65,14 @@ button[type=submit]:hover {
   background-color: hsl(192, 100%, 50%)
 }
 
+.error-box,
+#login-form label input,
+button[type=submit] {
+  font-size: clamp(variables.$smaller-fs, 1.5vw, variables.$small-fs);
+}
+
+#login-form label,
 .login-container a {
-  font-size: clamp(1.6rem, 2vw, 2.4rem);
+  font-size: clamp(variables.$small-fs, 2vw, variables.$large-fs);
   color: #2533B6;
 }
