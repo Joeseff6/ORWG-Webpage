@@ -239,6 +239,7 @@ label[for=search] {
   position: relative;
   width: clamp(30rem, 80%, 80rem);
   background-color:  #FAEDC0;
+  background-image: url("../../assets/images/Scroll.jpg");
   border-radius: 5px;
   z-index: 2;
 }
@@ -264,9 +265,12 @@ label[for=search] {
   margin-bottom: 1rem;
   width: clamp(20rem, 70%, 75rem);
   background-color:  #FCF4D9;
+  background-image: url("../../assets/images/Scroll.jpg");
+  background-position: 100% 0%;
   border-radius: 0 0 5px 5px;
   z-index: 1;
   transition: transform 0.5s ease-out;
+
 }
 
 .answer {
