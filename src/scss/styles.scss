@@ -27,6 +27,7 @@ html * {
 
 body {
   min-height: 100vh;
+  padding-top: 7rem;
   background-image: radial-gradient(circle at center,white, hsl(192, 100%, 50%));
   background-size: 200% 200%;
   background-position: 50% 10%;
@@ -49,9 +50,9 @@ a {
 }
 
 .main-header {
-  padding-top: 7rem;
+  padding: 0 2rem;
   text-align: center;
-  font-size: variables.$largest-fs;
+  font-size: clamp(variables.$normal-fs, 3vw, variables.$largest-fs);
   font-style: italic;
   font-weight: 400;
   .page-title {
