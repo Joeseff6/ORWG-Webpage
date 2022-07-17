@@ -228,10 +228,10 @@ label[for=search] {
 
 .question-box, .answer-box {
   margin: auto;
-  padding: 3rem 2rem;
 }
 
 .question-box {
+  padding: 3rem 2rem;
   position: relative;
   width: clamp(30rem, 80%, 80rem);
   background-color:  #FAEDC0;
@@ -248,7 +248,7 @@ label[for=search] {
 }
 
 .question {
-  font-size: clamp(variables.$normal-fs, 2vw, variables.$large-fs);
+  font-size: clamp(variables.$smaller-fs, 3vw, variables.$large-fs);
 }
 
 .question::before {
@@ -256,8 +256,9 @@ label[for=search] {
 }
 
 .answer-box {
+  padding: 1rem 2rem;
   margin-bottom: 1rem;
-  width: clamp(20rem, 70%, 70rem);
+  width: clamp(20rem, 70%, 75rem);
   background-color:  #FCF4D9;
   border-radius: 0 0 5px 5px;
   z-index: 1;
@@ -265,7 +266,7 @@ label[for=search] {
 }
 
 .answer {
-  font-size: clamp(variables.$small-fs, 2vw, variables.$normal-fs);
+  font-size: clamp(variables.$smallest-fs, 2vw, variables.$normal-fs);
 }
 
 .answer::before {
