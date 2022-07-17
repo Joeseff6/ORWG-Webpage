@@ -194,3 +194,62 @@ label[for=search] {
 }
 //------------------------------->
 
+// Questions Section Styling
+.questions-section {
+  width: 90%;
+  letter-spacing: 1.25px;
+}
+
+.question-answer-container > p {
+  text-align: center;
+  font-size: clamp(2rem, 3vw, 2.4rem);
+  margin-bottom: 3rem;
+}
+
+.question-box, .answer-box {
+  margin: auto;
+  padding: 3rem 2rem;
+}
+
+.question-box {
+  position: relative;
+  width: clamp(30rem, 80%, 80rem);
+  background-color:  #FAEDC0;
+  border-radius: 5px;
+  z-index: 2;
+}
+
+.email-link {
+  position: absolute;
+  top: 0.5rem;
+  right: 1rem;
+  font-size: clamp(1.2rem, 3vw, 1.6rem);
+  font-weight: 800;
+}
+
+.question {
+  font-size: clamp(2rem, 2vw,2.4rem)
+}
+
+.question::before {
+  content: "Question ";
+}
+
+.answer-box {
+  margin-bottom: 1rem;
+  width: clamp(20rem, 70%, 70rem);
+  background-color:  #FCF4D9;
+  border-radius: 0 0 5px 5px;
+  z-index: 1;
+  transition: transform 0.5s ease-out;
+}
+
+.answer {
+  font-size: clamp(1.6rem, 2vw,2rem)
+}
+
+.answer::before {
+  content: "Answer ";
+}
+
+//------------------------------->
