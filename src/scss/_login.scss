@@ -7,11 +7,12 @@
 
 .login-header p {
   font-weight: 800;
+  padding: 0 2rem;
 }
 
 .login-container {
   background-color: white;
-  width: clamp(40rem, 60%, 60rem);
+  width: clamp(35rem, 60%, 60rem);
   margin: auto;
   margin-top: 3rem;
   padding: 5rem 1rem;
