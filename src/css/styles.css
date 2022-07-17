@@ -151,7 +151,7 @@ label[for=search] {
   padding: 0 2rem;
   display: flex;
   align-items: center;
-  gap: 3rem;
+  gap: 2rem;
 }
 .pagination-container .button {
   cursor: pointer;
