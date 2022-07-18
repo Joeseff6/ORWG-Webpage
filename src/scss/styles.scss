@@ -1,6 +1,6 @@
 @use "variables";
 @use "login";
-@import url('https://fonts.googleapis.com/css2?family=Cardo&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Cardo&display=swap");
 //Global Styles
 *,
 *::before,
@@ -16,8 +16,8 @@
 
 html {
   font-size: 62.5%;
-  font-family: 'Cardo', serif;
-  color: #2533B6;
+  font-family: "Cardo", serif;
+  color: #2533b6;
 }
 
 html * {
@@ -28,7 +28,11 @@ html * {
 body {
   min-height: 100vh;
   padding-top: 7rem;
-  background-image: radial-gradient(circle at center,white, hsl(192, 100%, 50%));
+  background-image: radial-gradient(
+    circle at center,
+    white,
+    hsl(192, 100%, 50%)
+  );
   background-size: 200% 200%;
   background-position: 50% 10%;
   position: relative;
@@ -40,7 +44,7 @@ a {
 }
 
 a:visited {
-  color: #2533B6;
+  color: #2533b6;
 }
 //------------------------------->
 
@@ -74,15 +78,15 @@ a:visited {
   gap: 1rem;
 }
 
-label[for=search] {
+label[for="search"] {
   text-align: center;
   font-size: clamp(variables.$normal-fs, 3vw, variables.$large-fs);
 }
 
 #search {
-  color: #2533B6;
-  font-family: 'Cardo', serif;
-  width: clamp(25rem, 50%,40rem);
+  color: #2533b6;
+  font-family: "Cardo", serif;
+  width: clamp(25rem, 50%, 40rem);
   font-size: clamp(variables.$smaller-fs, 3vw, variables.$normal-fs);
   border: 1px solid gray;
   border-radius: 100vmax;
@@ -97,11 +101,12 @@ label[for=search] {
   .button {
     cursor: pointer;
     background-color: white;
-    border: 1px solid #2533B6;
+    border: 1px solid #2533b6;
     border-radius: 5px;
-    color: #2533B6;
+    color: #2533b6;
   }
-  .button.right, .button.left {
+  .button.right,
+  .button.left {
     padding: 0.5rem 1rem;
   }
 }
@@ -118,8 +123,6 @@ label[for=search] {
     font-weight: 600;
   }
 }
-
-
 
 // Utilities
 .close {
@@ -140,7 +143,12 @@ label[for=search] {
   -webkit-background-clip: text;
   color: transparent;
   padding-right: 1rem;
-  background-image: linear-gradient(to left top, #2533B6, white, #2533B6);
+  background-image: linear-gradient(
+    to left top,
+    #2533b6,
+    white,
+    #2533b6 70%,
+    #2533b6);
   background-size: 500% 500%;
   animation: highlight-text 10s linear infinite;
 }
@@ -149,20 +157,16 @@ label[for=search] {
   0% {
     background-position: 0 0;
   }
-  
+
   45% {
     background-position: 0 0;
   }
-  
-  50% {
+
+  60% {
     background-position: 100% 100%;
   }
 
-  55% {
-    background-position: 0 0;
-  }
-
-  100% {
+  75% {
     background-position: 0 0;
   }
 }
@@ -171,7 +175,7 @@ label[for=search] {
   position: absolute;
   top: calc(-1 * variables.$sun-width / 2);
   left: calc(-1 * variables.$sun-width / 2);
-  background-color: rgba(255, 255, 0, 0.60);
+  background-color: rgba(255, 255, 0, 0.6);
   width: variables.$sun-width;
   aspect-ratio: 1 / 1;
   border-radius: 50%;
@@ -234,7 +238,8 @@ label[for=search] {
   margin-bottom: 3rem;
 }
 
-.question-box, .answer-box {
+.question-box,
+.answer-box {
   margin: auto;
 }
 
@@ -242,7 +247,7 @@ label[for=search] {
   padding: 3rem 2rem;
   position: relative;
   width: clamp(30rem, 80%, 80rem);
-  background-color:  #FAEDC0;
+  background-color: #faedc0;
   background-image: url("../../assets/images/Scroll.jpg");
   border: 1px solid hsl(44, 100%, 37%);
   border-radius: 5px;
@@ -269,7 +274,7 @@ label[for=search] {
   padding: 1rem 2rem;
   margin-bottom: 1rem;
   width: clamp(20rem, 70%, 75rem);
-  background-color:  #FCF4D9;
+  background-color: #fcf4d9;
   background-image: url("../../assets/images/Scroll.jpg");
   background-position: 100% 0%;
   border: 1px solid hsl(44, 100%, 44%);
@@ -277,7 +282,6 @@ label[for=search] {
   border-radius: 0 0 5px 5px;
   z-index: 1;
   transition: transform 0.5s ease-out;
-
 }
 
 .answer {
