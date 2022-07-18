@@ -5,7 +5,7 @@ const logger = require("morgan");
 const app = express();
 const port = 4000;
 
-
+app.use(logger("combined"));
 app.use(express.static(path.join(__dirname, "public")));
 
 app.get("/", (req, res) => {
