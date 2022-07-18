@@ -107,6 +107,10 @@ a {
   text-decoration: none;
 }
 
+a:visited {
+  color: #2533B6;
+}
+
 .admin-link {
   position: fixed;
   top: 2rem;
