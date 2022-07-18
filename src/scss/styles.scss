@@ -244,6 +244,7 @@ label[for=search] {
   width: clamp(30rem, 80%, 80rem);
   background-color:  #FAEDC0;
   background-image: url("../../assets/images/Scroll.jpg");
+  border: 1px solid hsl(44, 100%, 37%);
   border-radius: 5px;
   z-index: 2;
 }
@@ -271,6 +272,8 @@ label[for=search] {
   background-color:  #FCF4D9;
   background-image: url("../../assets/images/Scroll.jpg");
   background-position: 100% 0%;
+  border: 1px solid hsl(44, 100%, 44%);
+  border-top: none;
   border-radius: 0 0 5px 5px;
   z-index: 1;
   transition: transform 0.5s ease-out;
