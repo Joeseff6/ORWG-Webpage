@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/Joeseff6/ORWG-Webpage/issues"
   },
-  "homepage": "https://github.com/Joeseff6/ORWG-Webpage#readme"
+  "homepage": "https://github.com/Joeseff6/ORWG-Webpage#readme",
+  "dependencies": {
+    "express": "^4.18.1"
+  }
 }
