@@ -9,7 +9,11 @@ app.use(logger("combined"));
 app.use(express.static(path.join(__dirname, "client", "public")));
 
 app.get("/", (req, res) => {
-  res.send(`Port ${port} is listening`)
+  res.sendFile(path.join(__dirname, "client", "public", "index.html"));
+});
+
+app.get("/login", (req, res) => {
+  res.sendFile(path.join(__dirname, "client", "public", "html", "login.html"));
 });
 
 app.listen(port, () => {
