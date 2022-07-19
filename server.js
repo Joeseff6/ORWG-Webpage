@@ -6,7 +6,7 @@ const app = express();
 const port = 4000;
 
 app.use(logger("combined"));
-app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static(path.join(__dirname, "client", "public")));
 
 app.get("/", (req, res) => {
   res.send(`Port ${port} is listening`)
