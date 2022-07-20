@@ -4,7 +4,7 @@ const logger = require("morgan");
 const routes = require("./routes");
 
 const app = express();
-const port = 4000;
+const PORT = 4000;
 
 app.use(express.json());
 app.use(logger("combined"));
@@ -17,6 +17,6 @@ app.get("/login", (req, res) => {
 });
 app.use(routes);
 
-app.listen(port, () => {
-  console.log(`Server is listening on port ${port}`);
+app.listen(PORT, () => {
+  console.log(`Server is listening on port ${PORT}`);
 })
