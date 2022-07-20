@@ -8,7 +8,7 @@ const AdminSchema = new Schema({
     trim: true,
     unique: true,
   },
-  password: {
+  adminPassword: {
     type: String,
     required: [true, `Please enter the correct admin password.`],
     trim: true,
