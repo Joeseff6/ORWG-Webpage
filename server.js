@@ -8,7 +8,7 @@ const app = express();
 const PORT = 4000;
 
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: false }));
 app.use(logger("combined"));
 app.use(express.static(path.join(__dirname, "client", "public")));
 app.get("/", (req, res) => {
