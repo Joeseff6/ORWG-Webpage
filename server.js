@@ -14,9 +14,7 @@ app.use(express.static(path.join(__dirname, "client", "public")));
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "client", "public", "index.html"));
 });
-app.get("/login", (req, res) => {
-  res.sendFile(path.join(__dirname, "client", "public", "html", "login.html"));
-});
+
 app.use(routes);
 
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/orwgDB", {
