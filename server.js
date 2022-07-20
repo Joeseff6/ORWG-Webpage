@@ -1,6 +1,7 @@
 const express = require("express");
-const path = require("path");
 const logger = require("morgan");
+const mongoose = require("mongoose");
+const path = require("path");
 const routes = require("./routes");
 
 const app = express();
@@ -17,6 +18,11 @@ app.get("/login", (req, res) => {
   res.sendFile(path.join(__dirname, "client", "public", "html", "login.html"));
 });
 app.use(routes);
+
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/orwgDB", {
+  useUnifiedTopology: true,
+  useNewUrlParser: true,
+});
 
 app.listen(PORT, () => {
   console.log(`Server is listening on port ${PORT}`);
