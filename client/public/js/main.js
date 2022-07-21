@@ -8,6 +8,20 @@ window.addEventListener("resize", () => {
   }, 500);
 });
 
+window.addEventListener("load", async () => {
+  try {
+    let questions = await $.ajax({
+      url: "/api/questions",
+      method: "GET",
+      dataType: "json",
+    });
+    console.log(questions)
+  } catch(err) {
+    console.log(err.message);
+  }
+
+})
+
 $(".question-box").click(({ target }) => {
   let questionEl = $(target).is("div")
     ? target
