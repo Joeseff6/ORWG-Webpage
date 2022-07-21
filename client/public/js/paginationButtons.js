@@ -2,7 +2,6 @@ export default function generatePaginationButtons(
   itemsArray,
   itemsPerPage = 5
 ) {
-  console.log(itemsArray);
   if (itemsPerPage > itemsArray.length)
     throw new Error(
       "The number of items per page should not exceed the number of items"
