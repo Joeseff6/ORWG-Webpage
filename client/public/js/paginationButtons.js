@@ -12,6 +12,12 @@ export default function generatePaginationButtons(
     const newButton = `<button class="button page">${i}</button>`;
     $(".pagination-numbers").append(newButton);
   }
+  document.querySelector(".button.page").classList.add("active");
+  $(".button.page").click((e) => {
+    $(".button.page").removeClass("active");
+    e.target.classList.add("active");
+    console.log(e.target)
+  })
   generateQuestionsAndAnswers(itemsArray, itemsPerPage);
 }
 
