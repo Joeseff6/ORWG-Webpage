@@ -16,13 +16,29 @@ export default function generatePaginationButtons(
   $(".button.page").click((e) => {
     $(".button.page").removeClass("active");
     e.target.classList.add("active");
-    console.log(e.target)
+    const pageNumber = Number(e.target.textContent);
+    const sliceIndices = getArrayIndices(pageNumber, itemsArray.length, itemsPerPage);
+    generateQuestionsAndAnswers(itemsArray, sliceIndices);
   })
-  generateQuestionsAndAnswers(itemsArray, itemsPerPage);
 }
 
-function generateQuestionsAndAnswers(itemsArray, itemsPerPage = 5) {
-  itemsArray.slice(0, itemsPerPage).forEach((item) => {
+function getArrayIndices(pageNumber, itemsArrayLength, itemsPerPage) {
+  if (pageNumber === 1) {
+    return [0, itemsPerPage];
+  } else if (pageNumber === Math.ceil(itemsArrayLength / itemsPerPage)) {
+    return [
+      (pageNumber - 1) * itemsPerPage,
+      (pageNumber - 1) * itemsPerPage + (itemsArrayLength - (pageNumber - 1) * itemsPerPage)
+    ]
+  } else {
+    return [(pageNumber - 1) * itemsPerPage, pageNumber * itemsPerPage];
+  }
+}
+
+function generateQuestionsAndAnswers(itemsArray, sliceIndices) {
+  $(".question-box").remove();
+  $(".answer-box").remove();
+  itemsArray.slice(sliceIndices[0], sliceIndices[1]).forEach((item) => {
     const questionsAndAnswers = `<div class="question-box" data-question="${item.questionNumber}">
       <a class="email-link" href="">Ask us about this question</a>
       <h2 class="question">#${item.questionNumber + ": " + item.question}</h2>
@@ -47,5 +63,4 @@ function generateQuestionsAndAnswers(itemsArray, itemsPerPage = 5) {
     $(".answer-box").addClass("close");
     selectedAnswer.removeClass("close");
   });
-  
 }
