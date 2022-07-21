@@ -13,6 +13,7 @@ export default function generatePaginationButtons(
     $(".pagination-numbers").append(newButton);
   }
   document.querySelector(".button.page").classList.add("active");
+  generateQuestionsAndAnswers(itemsArray, [0, itemsPerPage]);
   $(".button.page").click((e) => {
     $(".button.page").removeClass("active");
     e.target.classList.add("active");
