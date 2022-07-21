@@ -1,5 +1,4 @@
 import generatePaginationButtons from "./paginationButtons.js";
-
 let resizeTimeoutId, searchTimeoutId;
 
 $(window).resize(() => {
@@ -12,16 +11,25 @@ $(window).resize(() => {
 
 window.addEventListener("load", async () => {
   try {
-    const questions = await $.ajax({
-      url: "/api/questions",
-      method: "GET",
-      dataType: "json",
-    });
+    const questions = await fetchQuestions();
     generatePaginationButtons(questions, 10);
   } catch(err) {
     console.log(err);
   }
 })
+
+async function fetchQuestions() {
+  try {
+    const questions = await $.ajax({
+      url: "/api/questions",
+      method: "GET",
+      dataType: "json",
+    });
+    return questions;
+  } catch(err) {
+    console.log(err);
+  }
+}
 
 document.querySelector("#search").addEventListener("input",(e) => {
   clearTimeout(searchTimeoutId);
@@ -34,12 +42,8 @@ document.querySelector("#search").addEventListener("input",(e) => {
   searchTimeoutId = setTimeout(async() => {
     try {
       const pattern = e.target.value;
-      const questions = await $.ajax({
-        url: "/api/questions",
-        method: "GET",
-        dataType: "json",
-      });
-      const fuse = new Fuse(questions, options)
+      const questions = await fetchQuestions();
+      const fuse = new Fuse(questions, options);
       $(".button.page").remove();
       if (!fuse.search(pattern).length) {
         generatePaginationButtons(questions, 10);
@@ -50,5 +54,4 @@ document.querySelector("#search").addEventListener("input",(e) => {
       console.log(err);
     }
   }, 500)
-
 })
