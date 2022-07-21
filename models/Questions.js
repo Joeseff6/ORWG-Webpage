@@ -4,12 +4,12 @@ const { Schema } = mongoose;
 const QuestionsSchema = new Schema({
   questionNumber: {
     type: String,
-    required,
-    unique,
+    required: true,
+    unique: true,
   },
   question: {
     type: String,
-    required
+    required: true,
   },
   answer: String,
 })
