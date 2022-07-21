@@ -2,7 +2,7 @@ import generatePaginationButtons from "./paginationButtons.js";
 
 let resizeTimeoutId;
 
-window.addEventListener("resize", () => {
+$(window).resize(() => {
   clearTimeout(resizeTimeoutId);
   $(".sun").removeClass("animate-sun");
   resizeTimeoutId = setTimeout(() => {
