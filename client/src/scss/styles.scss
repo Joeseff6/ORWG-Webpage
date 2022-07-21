@@ -112,9 +112,8 @@ label[for="search"] {
 }
 
 .pagination-numbers {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
   gap: 0.5rem;
   .button.page {
     min-width: 30px;
