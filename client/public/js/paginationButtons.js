@@ -2,10 +2,6 @@ export default function generatePaginationButtons(
   itemsArray,
   itemsPerPage = 5
 ) {
-  if (itemsPerPage > itemsArray.length)
-    throw new Error(
-      "The number of items per page should not exceed the number of items"
-    );
   const numberOfPages = Math.ceil(itemsArray.length / itemsPerPage);
   for (let i = 1; i <= numberOfPages; i++) {
     const newButton = `<button class="button page">${i}</button>`;
@@ -38,14 +34,20 @@ function getArrayIndices(pageNumber, itemsArrayLength, itemsPerPage) {
 function generateQuestionsAndAnswers(itemsArray, sliceIndices) {
   $(".question-box").remove();
   $(".answer-box").remove();
-  itemsArray.slice(sliceIndices[0], sliceIndices[1]).forEach((item) => {
-    const questionsAndAnswers = `<div class="question-box" data-question="${item.questionNumber}">
+  itemsArray.slice(sliceIndices[0], sliceIndices[1]).forEach((listItem) => {
+    // Fuse.js returns search results as an array of objects, with property "item".
+    // Below if statement is to assign iterable argument listItem to this "item" property
+    // when user searches by keyword.
+    if (listItem.item) {
+      listItem = listItem.item;
+    }
+    const questionsAndAnswers = `<div class="question-box" data-question="${listItem.questionNumber}">
       <a class="email-link" href="">Ask us about this question</a>
-      <h2 class="question">#${item.questionNumber + ": " + item.question}</h2>
+      <h2 class="question">#${listItem.questionNumber + ": " + listItem.question}</h2>
     </div>
-    <div class="answer-box close" data-question="${item.questionNumber}">
+    <div class="answer-box close" data-question="${listItem.questionNumber}">
       <h3 class="answer">${
-        item.answer ? item.answer : "We are still seeking this answer."
+        listItem.answer ? listItem.answer : "We are still seeking this answer."
       }</h3>
     </div>`;
     $(".question-answer-container").append(questionsAndAnswers);

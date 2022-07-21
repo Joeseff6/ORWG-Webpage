@@ -1,6 +1,6 @@
 import generatePaginationButtons from "./paginationButtons.js";
 
-let resizeTimeoutId;
+let resizeTimeoutId, searchTimeoutId;
 
 $(window).resize(() => {
   clearTimeout(resizeTimeoutId);
@@ -12,7 +12,7 @@ $(window).resize(() => {
 
 window.addEventListener("load", async () => {
   try {
-    let questions = await $.ajax({
+    const questions = await $.ajax({
       url: "/api/questions",
       method: "GET",
       dataType: "json",
@@ -21,4 +21,34 @@ window.addEventListener("load", async () => {
   } catch(err) {
     console.log(err);
   }
+})
+
+document.querySelector("#search").addEventListener("input",(e) => {
+  clearTimeout(searchTimeoutId);
+  const options = {
+    keys: [
+      "questionNumber",
+      "question",
+    ]
+  }
+  searchTimeoutId = setTimeout(async() => {
+    try {
+      const pattern = e.target.value;
+      const questions = await $.ajax({
+        url: "/api/questions",
+        method: "GET",
+        dataType: "json",
+      });
+      const fuse = new Fuse(questions, options)
+      $(".button.page").remove();
+      if (!fuse.search(pattern).length) {
+        generatePaginationButtons(questions, 10);
+      } else {
+        generatePaginationButtons(fuse.search(pattern), 10);
+      }
+    } catch(err) {
+      console.log(err);
+    }
+  }, 500)
+
 })
