@@ -120,7 +120,13 @@ label[for="search"] {
     aspect-ratio: 1 / 1;
     font-size: variables.$smaller-fs;
     font-weight: 600;
+    transition: background-color 0.25s linear;
   }
+}
+
+.button.page.active {
+  background-color: hsl(203, 66%, 43%);
+  color: white;
 }
 
 // Utilities

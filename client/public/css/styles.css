@@ -183,6 +183,12 @@ label[for=search] {
   aspect-ratio: 1/1;
   font-size: 1.2rem;
   font-weight: 600;
+  transition: background-color 0.25s linear;
+}
+
+.button.page.active {
+  background-color: hsl(203deg, 66%, 43%);
+  color: white;
 }
 
 .close {
