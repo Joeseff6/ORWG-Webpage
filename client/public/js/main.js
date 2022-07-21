@@ -1,3 +1,5 @@
+import generatePaginationButtons from "./paginationButtons.js";
+
 let resizeTimeoutId;
 
 window.addEventListener("resize", () => {
@@ -15,9 +17,9 @@ window.addEventListener("load", async () => {
       method: "GET",
       dataType: "json",
     });
-    console.log(questions)
+    generatePaginationButtons(questions, 10);
   } catch(err) {
-    console.log(err.message);
+    console.log(err);
   }
 
 })
