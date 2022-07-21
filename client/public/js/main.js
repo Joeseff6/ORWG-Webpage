@@ -46,11 +46,15 @@ document.querySelector("#search").addEventListener("input",(e) => {
     try {
       const questions = await fetchQuestions();
       const fuse = new Fuse(questions, options);
+      let searchResults = fuse.search(searchTerm);
       $(".button.page").remove();
-      if (!fuse.search(searchTerm).length) {
+      if (!searchResults.length) {
         generatePaginationButtons(questions, 10);
       } else {
-        generatePaginationButtons(fuse.search(searchTerm), 10);
+        searchResults.sort((firstObject, secondObject) => {
+          return firstObject.item.questionNumber < secondObject.item.questionNumber ? -1 : 1;
+        });
+        generatePaginationButtons(searchResults, 10);
       }
     } catch(err) {
       console.log(err);
