@@ -8,8 +8,5 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "fuse.js": "^6.6.2"
-  }
+  "license": "ISC"
 }
