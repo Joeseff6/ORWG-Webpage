@@ -52,7 +52,7 @@ document.querySelector("#search").addEventListener("input",(e) => {
         generatePaginationButtons(questions, 10);
       } else {
         searchResults.sort((firstObject, secondObject) => {
-          return firstObject.item.questionNumber < secondObject.item.questionNumber ? -1 : 1;
+          return Number(firstObject.item.questionNumber) - Number(secondObject.item.questionNumber);
         });
         generatePaginationButtons(searchResults, 10);
       }
