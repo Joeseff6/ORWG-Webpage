@@ -179,9 +179,9 @@ label[for=search] {
   gap: 0.5rem;
 }
 .pagination-numbers .button.page {
-  min-width: 30px;
+  width: clamp(30px, 5vw, 40px);
   aspect-ratio: 1/1;
-  font-size: 1.2rem;
+  font-size: clamp(1.2rem, 2vw, 1.6rem);
   font-weight: 600;
   transition: background-color 0.25s linear;
 }

@@ -116,9 +116,9 @@ label[for="search"] {
   grid-template-columns: repeat(10, 1fr);
   gap: 0.5rem;
   .button.page {
-    min-width: 30px;
+    width: clamp(30px, 5vw, 40px);
     aspect-ratio: 1 / 1;
-    font-size: variables.$smaller-fs;
+    font-size: clamp(variables.$smaller-fs, 2vw, variables.$small-fs);
     font-weight: 600;
     transition: background-color 0.25s linear;
   }
