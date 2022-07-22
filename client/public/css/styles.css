@@ -112,10 +112,11 @@ a:visited {
 }
 
 .admin-link {
-  position: fixed;
+  position: absolute;
   top: 2rem;
-  right: 2rem;
-  font-size: clamp(1.6rem, 3vw, 2rem);
+  right: 4rem;
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  font-weight: 600;
   letter-spacing: 1.5px;
 }
 

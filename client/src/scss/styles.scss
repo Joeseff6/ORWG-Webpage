@@ -50,10 +50,11 @@ a:visited {
 
 // Main Page Styling
 .admin-link {
-  position: fixed;
+  position: absolute;
   top: 2rem;
-  right: 2rem;
-  font-size: clamp(variables.$small-fs, 3vw, variables.$normal-fs);
+  right: 4rem;
+  font-size: clamp(variables.$small-fs, 3vw, variables.$large-fs);
+  font-weight: 600;
   letter-spacing: 1.5px;
 }
 
