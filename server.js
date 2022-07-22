@@ -21,6 +21,12 @@ app.get("/", async (req, res) => {
   }
 });
 
+app.get("/login", (req, res) => {
+  res.sendFile(path.join(__dirname, "client", "public", "html", "login.html"));
+});
+
+app.use(routes);
+
 async function initAdminPassword() {
   try {
     let admin = await db.Admin.findOne();
@@ -47,12 +53,6 @@ async function initAdminPassword() {
 }
 
 initAdminPassword();
-
-app.get("/login", (req, res) => {
-  res.sendFile(path.join(__dirname, "client", "public", "html", "login.html"));
-});
-
-app.use(routes);
 
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/orwgDB", {
   useUnifiedTopology: true,
