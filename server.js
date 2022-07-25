@@ -60,34 +60,6 @@ async function initAdminPassword() {
 
 initAdminPassword();
 
-async function validatePassword() {
-  try {
-    const { adminPassword } = await db.Admin.findOne();
-    const passwordAttempt = "letmein";
-    const actualPassword = process.env.ADMIN_PASSWORD;
-    bcrypt.compare(passwordAttempt, adminPassword, (err, res) => {
-      if (err) {
-        console.log(err);
-      } else {
-        const validationMessage = res ? "Validation success!" : "Wrong password";
-        console.log(validationMessage);
-      }
-    });
-    bcrypt.compare(actualPassword, adminPassword, (err, res) => {
-      if (err) {
-        console.log(err.message);
-      } else {
-        const validationMessage = res ? "Validation success!" : "Wrong password";
-        console.log(validationMessage);
-      }
-    });
-  } catch (err) {
-    console.log(err.message)
-  }
-}
-
-validatePassword();
-
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/orwgDB", {
   useUnifiedTopology: true,
   useNewUrlParser: true,
