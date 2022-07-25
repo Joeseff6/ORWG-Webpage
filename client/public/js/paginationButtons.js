@@ -35,12 +35,6 @@ function generateQuestionsAndAnswers(itemsArray, sliceIndices) {
   $(".question-box").remove();
   $(".answer-box").remove();
   itemsArray.slice(sliceIndices[0], sliceIndices[1]).forEach((listItem) => {
-    // Fuse.js returns search results as an array of objects, with property "item".
-    // Below if statement is to assign iterable argument listItem to this "item" property
-    // when user searches by keyword.
-    if (listItem.item) {
-      listItem = listItem.item;
-    }
     const questionsAndAnswers = `<div class="question-box" data-question="${listItem.questionNumber}">
       <a class="email-link" href="">Ask us about this question</a>
       <h2 class="question">#${listItem.questionNumber + ": " + listItem.question}</h2>

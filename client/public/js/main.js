@@ -46,15 +46,19 @@ document.querySelector("#search").addEventListener("input",(e) => {
     try {
       const questions = await fetchQuestions();
       const fuse = new Fuse(questions, options);
-      let searchResults = fuse.search(searchTerm);
+      const searchResults = fuse.search(searchTerm);
+      let formattedResults = [];
+      searchResults.forEach(result => {
+        formattedResults.push(result.item);
+      })
       $(".button.page").remove();
-      if (!searchResults.length) {
+      if (!formattedResults.length) {
         generatePaginationButtons(questions, 10);
       } else {
-        searchResults.sort((firstObject, secondObject) => {
-          return Number(firstObject.item.questionNumber) - Number(secondObject.item.questionNumber);
+        formattedResults.sort((firstObject, secondObject) => {
+          return Number(firstObject.questionNumber) - Number(secondObject.questionNumber);
         });
-        generatePaginationButtons(searchResults, 10);
+        generatePaginationButtons(formattedResults, 10);
       }
     } catch(err) {
       console.log(err);
