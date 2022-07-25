@@ -2,7 +2,7 @@ require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
 const path = require("path");
-const bcrypt = require("bcrypt");
+const bcrypt = require("bcryptjs");
 const routes = require("./routes");
 const db = require("./models");
 
@@ -33,21 +33,27 @@ async function initAdminPassword() {
     if (admin.adminPassword) {
       return;
     } else {
-      const saltRounds = 10;
+      console.log("Admin password not found. Generating now.")
       let adminPassword = process.env.ADMIN_PASSWORD;
-      bcrypt.hash(adminPassword, saltRounds, async (err, hash) => {
+      bcrypt.genSalt(10, (err, salt) => {
         if (err) {
-          console.log(err);
+          console.log(err.message);
         } else {
-          console.log("Password hashed!");
-          await db.Admin.updateOne({ adminUsername: process.env.ADMIN_USERNAME}, 
-            {$set: {adminPassword: hash}}
-          )
-          console.log("Password updated for admin.");
+          bcrypt.hash(adminPassword, salt, async (err, hash) => {
+            if (err) {
+              console.log(err.message);
+            } else {
+              await db.Admin.updateOne(
+                { adminUsername: process.env.ADMIN_USERNAME },
+                { $set: { adminPassword: hash } }
+              );
+              console.log("Admin password generated!")
+            }
+          });
         }
-      })
+      });
     }
-  } catch(err) {
+  } catch (err) {
     console.log(err.message);
   }
 }
