@@ -56,6 +56,11 @@ a:visited {
   font-size: clamp(variables.$small-fs, 3vw, variables.$large-fs);
   font-weight: 600;
   letter-spacing: 1.5px;
+  transition: transform 0.5s linear;
+}
+
+.admin-link:hover {
+  transform: scale(1.10);
 }
 
 .main-header {
