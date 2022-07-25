@@ -29,7 +29,7 @@ app.use(routes);
 
 async function initAdminPassword() {
   try {
-    let admin = await db.Admin.findOne();
+    const admin = await db.Admin.findOne();
     if (admin.adminPassword) {
       return;
     } else {
@@ -40,14 +40,14 @@ async function initAdminPassword() {
           console.log(err.message);
         } else {
           bcrypt.hash(adminPassword, salt, async (err, hash) => {
-            if (err) {
-              console.log(err.message);
-            } else {
+            try {
               await db.Admin.updateOne(
                 { adminUsername: process.env.ADMIN_USERNAME },
                 { $set: { adminPassword: hash } }
               );
               console.log("Admin password generated!")
+            } catch(err) {
+              console.log(err.message);
             }
           });
         }
