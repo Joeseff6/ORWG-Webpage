@@ -4,7 +4,7 @@ function onFormSubmit() {
     const adminAttempt = $("#username").val();
     const passwordAttempt = $("#password").val();
     try {
-        response = await $.ajax({
+        await $.ajax({
         url: "/api/admin",
         method: "POST",
         data: {
@@ -12,6 +12,7 @@ function onFormSubmit() {
           passwordAttempt,
         }
       })
+      document.location.replace("/");
     } catch({ responseJSON }) {
       $(".error-message").text(responseJSON.message);
       $(".error-box").removeClass("hide");
