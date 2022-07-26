@@ -3,14 +3,19 @@ function onFormSubmit() {
     e.preventDefault();
     const adminAttempt = $("#username").val();
     const passwordAttempt = $("#password").val();
-    await $.ajax({
-      url: "/api/admin",
-      method: "POST",
-      data: {
-        adminAttempt,
-        passwordAttempt,
-      }
-    })
+    try {
+        response = await $.ajax({
+        url: "/api/admin",
+        method: "POST",
+        data: {
+          adminAttempt,
+          passwordAttempt,
+        }
+      })
+    } catch({ responseJSON }) {
+      $(".error-message").text(responseJSON.message);
+      $(".error-box").removeClass("hide");
+    }
   })
 }
 
