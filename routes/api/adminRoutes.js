@@ -10,7 +10,7 @@ router.post("/", async(req, res) => {
         console.log(err.message);
       } else {
         if (isMatching) {
-          res.status(200).json({message: "Successful login!"});
+          res.status(200).end();
         } else {
           res.status(400).json({message: "Please check your credentials and try again."});
         }
