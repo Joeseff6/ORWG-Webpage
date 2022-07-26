@@ -2,7 +2,6 @@ require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
 const path = require("path");
-const bcrypt = require("bcryptjs");
 const routes = require("./routes");
 const db = require("./models");
 
@@ -26,39 +25,6 @@ app.get("/login", (req, res) => {
 });
 
 app.use(routes);
-
-async function initAdminPassword() {
-  try {
-    const admin = await db.Admin.findOne();
-    if (admin.adminPassword) {
-      return;
-    } else {
-      console.log("Admin password not found. Generating now.");
-      let adminPassword = process.env.ADMIN_PASSWORD;
-      bcrypt.genSalt(10, (err, salt) => {
-        if (err) {
-          console.log(err.message);
-        } else {
-          bcrypt.hash(adminPassword, salt, async (err, hash) => {
-            try {
-              await db.Admin.updateOne(
-                { adminUsername: process.env.ADMIN_USERNAME },
-                { $set: { adminPassword: hash } }
-              );
-              console.log("Admin password generated!");
-            } catch (err) {
-              console.log(err.message);
-            }
-          });
-        }
-      });
-    }
-  } catch (err) {
-    console.log(err.message);
-  }
-}
-
-initAdminPassword();
 
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/orwgDB", {
   useUnifiedTopology: true,
