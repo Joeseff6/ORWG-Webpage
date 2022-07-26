@@ -33,6 +33,7 @@
   color: red;
   background-color: hsl(0, 50%, 50%, 0.15);
   font-size: clamp(variables.$smaller-fs, 1.5vw, variables.$small-fs);
+  transition: opacity 0.5s linear;
 }
 
 #login-form {
