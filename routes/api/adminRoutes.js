@@ -3,19 +3,22 @@ const db = require("../../models");
 const bcrypt = require("bcryptjs");
 
 router.post("/", async(req, res) => {
-  console.log(req.body)
   try {
-    const { adminPassword } = await db.Admin.findOne({adminUsername: req.body.adminAttempt});
-    bcrypt.compare(req.body.passwordAttempt, adminPassword, (err, res) => {
+    const admin = await db.Admin.findOne({adminUsername: req.body.adminAttempt});
+    bcrypt.compare(req.body.passwordAttempt, admin.adminPassword, (err, isMatching) => {
       if (err) {
-        console.log(err);
+        console.log(err.message);
       } else {
-        const validationMessage = res ? "Validation success!" : "Wrong password";
-        console.log(validationMessage);
+        if (isMatching) {
+          res.status(200).json({message: "Successful login!"});
+        } else {
+          res.status(400).json({message: "Please check your credentials and try again."});
+        }
       }
     });
   } catch (err) {
     console.log(err.message)
+    res.status(400).json({message: "Admin was not found. Please try again."})
   }
 })
 
