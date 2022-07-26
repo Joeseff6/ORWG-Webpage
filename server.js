@@ -1,6 +1,7 @@
 require("dotenv").config();
 const express = require("express");
 const session = require("express-session");
+const MongoStore = require("connect-mongo");
 const mongoose = require("mongoose");
 const path = require("path");
 const routes = require("./routes");
@@ -14,11 +15,14 @@ const sess = {
   },
   resave: false,
   saveUninitialized: false,
-}
+  store: MongoStore.create({
+    mongoUrl: "mongodb://localhost/orwgDB",
+  }) 
+};
 if (app.get('env') === 'production') {
   app.set('trust proxy', 1);
   sess.cookie.secure = true;
-}
+};
 app.use(session(sess));
 
 app.use(express.urlencoded({ extended: false }));
