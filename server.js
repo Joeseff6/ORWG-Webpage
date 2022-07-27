@@ -24,6 +24,7 @@ if (app.get('env') === 'production') {
   sess.cookie.secure = true;
 };
 app.set("view engine","ejs");
+app.set("views", "./views");
 app.use(session(sess));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
