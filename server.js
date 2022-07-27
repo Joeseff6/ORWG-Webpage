@@ -23,8 +23,8 @@ if (app.get('env') === 'production') {
   app.set('trust proxy', 1);
   sess.cookie.secure = true;
 };
+app.set("view engine","ejs");
 app.use(session(sess));
-
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(express.static(path.join(__dirname, "client", "public")));
