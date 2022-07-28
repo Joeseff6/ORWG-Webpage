@@ -37,7 +37,7 @@ function generateQuestionsAndAnswers(itemsArray, sliceIndices) {
   itemsArray.slice(sliceIndices[0], sliceIndices[1]).forEach((listItem) => {
     const questionsAndAnswers = `<div class="question-box" data-question="${listItem.questionNumber}">
       <a class="email-link" href="">Ask us about this question</a>
-      <h2 class="question">#${listItem.questionNumber + ": " + listItem.question}</h2>
+      <h2 class="question"><span class="highlight-text">Question</span>#${listItem.questionNumber + ": " + listItem.question}</h2>
     </div>
     <div class="answer-box close" data-question="${listItem.questionNumber}">
       <h3 class="answer">${
