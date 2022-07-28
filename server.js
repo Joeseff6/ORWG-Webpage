@@ -1,5 +1,6 @@
 require("dotenv").config();
 const express = require("express");
+const expressLayouts = require("express-ejs-layouts");
 const session = require("express-session");
 const MongoStore = require("connect-mongo");
 const mongoose = require("mongoose");
@@ -23,23 +24,26 @@ if (app.get('env') === 'production') {
   app.set('trust proxy', 1);
   sess.cookie.secure = true;
 };
+app.use(expressLayouts);
+app.set("layout", "layouts/main");
 app.set("view engine","ejs");
-app.set("views", "./views");
 app.use(session(sess));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
-app.use(express.static(path.join(__dirname, "client", "public")));
+app.use(express.static(path.join(__dirname, "client", "public", "assets")));
+app.use(express.static(path.join(__dirname, "client", "public", "css")));
+app.use(express.static(path.join(__dirname, "client", "public", "js")));
 
 app.get("/", async (req, res) => {
   try {
-    res.sendFile(path.join(__dirname, "client", "public", "index.html"));
-  } catch (err) {
+    res.render("partials/questions");
+} catch (err) {
     console.log(err.message);
   }
 });
 
 app.get("/login", (req, res) => {
-  res.sendFile(path.join(__dirname, "client", "public", "html", "login.html"));
+  res.render("partials/login");
 });
 
 app.use(routes);
