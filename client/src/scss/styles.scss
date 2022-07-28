@@ -168,7 +168,7 @@ label[for="search"] {
     #2533b6 70%,
     #2533b6);
   background-size: 500% 500%;
-  animation: highlight-text 10s linear infinite;
+  animation: highlight-text 7s linear infinite;
 }
 
 @keyframes highlight-text {
@@ -176,7 +176,7 @@ label[for="search"] {
     background-position: 0 0;
   }
 
-  45% {
+  20% {
     background-position: 0 0;
   }
 
@@ -184,7 +184,7 @@ label[for="search"] {
     background-position: 100% 100%;
   }
 
-  75% {
+  80% {
     background-position: 0 0;
   }
 }
@@ -284,10 +284,6 @@ label[for="search"] {
   font-size: clamp(variables.$smaller-fs, 3vw, variables.$large-fs);
 }
 
-.question::before {
-  content: "Question ";
-}
-
 .answer-box {
   padding: 1rem 2rem;
   margin-bottom: 1rem;
@@ -304,10 +300,6 @@ label[for="search"] {
 
 .answer {
   font-size: clamp(variables.$smallest-fs, 2vw, variables.$normal-fs);
-}
-
-.answer::before {
-  content: "Answer: ";
 }
 
 //------------------------------->
