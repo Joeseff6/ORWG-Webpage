@@ -1,5 +1,5 @@
 function onFormSubmit() {
-  $("form").submit(async (e) => {
+  $("form").getElementById("login-form").submit(async (e) => {
     e.preventDefault();
     const adminAttempt = $("#username").val();
     const passwordAttempt = $("#password").val();
@@ -19,5 +19,3 @@ function onFormSubmit() {
     }
   })
 }
-
-onFormSubmit();
