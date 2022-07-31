@@ -11,7 +11,7 @@ document.getElementById("login-form").addEventListener("submit", async(e) => {
         passwordAttempt,
       }
     })
-    document.location.replace("/");
+    window.location.replace("/admin");
   } catch({ responseJSON }) {
     $(".error-message").text(responseJSON.message);
     $(".error-box").removeClass("hide");
