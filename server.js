@@ -34,18 +34,6 @@ app.use(express.static(path.join(__dirname, "client", "public", "assets")));
 app.use(express.static(path.join(__dirname, "client", "public", "css")));
 app.use(express.static(path.join(__dirname, "client", "public", "js")));
 
-app.get("/", async (req, res) => {
-  try {
-    res.render("partials/questions");
-} catch (err) {
-    console.log(err.message);
-  }
-});
-
-app.get("/login", (req, res) => {
-  res.render("partials/login");
-});
-
 app.use(routes);
 
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/orwgDB", {
