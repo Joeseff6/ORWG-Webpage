@@ -43,7 +43,8 @@ router.post("/", async(req, res) => {
         console.log(err.message);
       } else {
         if (isMatching) {
-          res.status(200).end();
+          req.session.loggedIn = true;
+          res.status(200).json({ message: "Admin logged in!" });
         } else {
           res.status(400).json({message: "Please check your credentials and try again."});
         }
