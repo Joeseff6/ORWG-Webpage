@@ -8,13 +8,13 @@ export default function generatePaginationButtons(
     $(".pagination-numbers").append(newButton);
   }
   document.querySelector(".button.page").classList.add("active");
-  generateQuestionsAndAnswers(itemsArray, [0, itemsPerPage]);
+  generateQuestionsAndAnswers(itemsArray, 0, 10);
   $(".button.page").click((e) => {
     $(".button.page").removeClass("active");
     e.target.classList.add("active");
     const pageNumber = Number(e.target.textContent);
-    const sliceIndices = getArrayIndices(pageNumber, itemsArray.length, itemsPerPage);
-    generateQuestionsAndAnswers(itemsArray, sliceIndices);
+    const [firstIndex, lastIndex] = getArrayIndices(pageNumber, itemsArray.length, itemsPerPage);
+    generateQuestionsAndAnswers(itemsArray, firstIndex, lastIndex);
   })
 }
 
@@ -31,11 +31,14 @@ function getArrayIndices(pageNumber, itemsArrayLength, itemsPerPage) {
   }
 }
 
-function generateQuestionsAndAnswers(itemsArray, sliceIndices) {
+function generateQuestionsAndAnswers(itemsArray, firstIndex, lastIndex) {
   $(".question-box").remove();
   $(".answer-box").remove();
-  itemsArray.slice(sliceIndices[0], sliceIndices[1]).forEach((listItem) => {
-    const questionsAndAnswers = `<div class="question-box" data-question="${listItem.questionNumber}">
+  let isAdmin = false;
+  if (window.location.pathname === "/admin" ) isAdmin = true;
+  itemsArray.slice(firstIndex, lastIndex).forEach((listItem) => {
+    const questionsAndAnswers = 
+    `<div class="question-box" data-question="${listItem.questionNumber}">
       <a class="email-link" href="">Ask us about this question</a>
       <h2 class="question"><span class="highlight-text">Question #${listItem.questionNumber}</span></h2>
       <h3>${listItem.question}</h3>
