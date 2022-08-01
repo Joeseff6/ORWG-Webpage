@@ -36,11 +36,14 @@ function generateQuestionsAndAnswers(itemsArray, firstIndex, lastIndex) {
   $(".answer-box").remove();
   let isAdmin = false;
   if (window.location.pathname === "/admin" ) isAdmin = true;
-  itemsArray.slice(firstIndex, lastIndex).forEach((listItem) => {
+  itemsArray.slice(firstIndex, lastIndex).forEach((listItem, index) => {
+    // <% if (loggedIn) { %>
+    //   <h1><%= "Hello" %></h1>
+    // <% } %>
     const questionsAndAnswers = 
-    `<div class="question-box" data-question="${listItem.questionNumber}">
+    `<div class="question-box" data-question="${index + 1}">
       <a class="email-link" href="">Ask us about this question</a>
-      <h2 class="question"><span class="highlight-text">Question #${listItem.questionNumber}</span></h2>
+      <h2 class="question"><span class="highlight-text">Question #${index + 1}</span></h2>
       <h3>${listItem.question}</h3>
     </div>
     <div class="answer-box close" data-question="${listItem.questionNumber}">
@@ -51,9 +54,7 @@ function generateQuestionsAndAnswers(itemsArray, firstIndex, lastIndex) {
     $(".question-answer-container").append(questionsAndAnswers);
   });
   $(".question-box").click(({ target }) => {
-    let questionEl = $(target).is("div")
-      ? target
-      : target.parentNode;
+    let questionEl = $(target).is("div") ? target : target.closest(".question-box");
     const questionNumber = questionEl.dataset.question;
     const selectedAnswer = $(`.answer-box[data-question=${questionNumber}]`)
     if (!selectedAnswer.hasClass("close")) {
