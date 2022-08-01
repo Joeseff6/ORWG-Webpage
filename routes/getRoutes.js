@@ -11,7 +11,6 @@ router.get("/", isLoggedIn, async (req, res) => {
 });
 
 router.get("/login", isLoggedIn, (req, res) => {
-  console.log(req.session)
   res.render("partials/login");
 });
 
