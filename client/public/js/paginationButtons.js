@@ -43,8 +43,7 @@ function generateQuestionsAndAnswers(itemsArray, firstIndex, lastIndex) {
     const questionsAndAnswers = 
     `<div class="question-box" data-question="${index + 1}">
       <a class="email-link" href="">Ask us about this question</a>
-      <h2 class="question"><span class="highlight-text">Question #${index + 1}</span></h2>
-      <h3>${listItem.question}</h3>
+      <h2 class="question">${listItem.question}</h2>
     </div>
     <div class="answer-box close" data-question="${listItem.questionNumber}">
       <h3 class="answer">${
