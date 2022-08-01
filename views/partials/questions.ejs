@@ -1,6 +1,6 @@
 <% if (loggedIn) { %>
   <button class="logout-button">
-    <a class="admin-link" href="">Logout Admin</a>
+    <p class="admin-link">Logout Admin</p>
   </button>
 <% } else if (!loggedIn) { %>
   <a class="admin-link" href="/login">Admin Access</a>
@@ -20,3 +20,6 @@
   </section>
 </main>
 <script type="module" src="/main.js"></script>
+<% if (loggedIn) { %>
+  <script type="module" src="/logout.js"></script>
+<% } %>
