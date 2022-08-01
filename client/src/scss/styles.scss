@@ -281,12 +281,12 @@ label[for="search"] {
   position: absolute;
   top: 0.5rem;
   right: 1rem;
-  font-size: clamp(variables.$smaller-fs, 3vw, variables.$small-fs);
+  font-size: clamp(variables.$smaller-fs, 2vw, variables.$small-fs);
   font-weight: 800;
 }
 
 .question {
-  font-size: clamp(variables.$smaller-fs, 3vw, variables.$large-fs);
+  font-size: clamp(variables.$smaller-fs, 2.5vw, variables.$large-fs);
 }
 
 .answer-box {

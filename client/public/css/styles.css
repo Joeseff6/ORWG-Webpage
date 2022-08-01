@@ -323,12 +323,12 @@ label[for=search] {
   position: absolute;
   top: 0.5rem;
   right: 1rem;
-  font-size: clamp(1.2rem, 3vw, 1.6rem);
+  font-size: clamp(1.2rem, 2vw, 1.6rem);
   font-weight: 800;
 }
 
 .question {
-  font-size: clamp(1.2rem, 3vw, 2.4rem);
+  font-size: clamp(1.2rem, 2.5vw, 2.4rem);
 }
 
 .answer-box {
