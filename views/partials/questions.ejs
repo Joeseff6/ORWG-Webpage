@@ -1,5 +1,7 @@
 <% if (loggedIn) { %>
-  <a class="admin-link" href="/">Logout Admin</a>
+  <button class="logout-button">
+    <a class="admin-link" href="/">Logout Admin</a>
+  </button>
 <% } else if (!loggedIn) { %>
   <a class="admin-link" href="/login">Admin Access</a>
 <% } %>
