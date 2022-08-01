@@ -43,7 +43,7 @@ a {
   text-decoration: none;
 }
 
-a:visited {
+a:visited, .admin-link {
   color: #2533b6;
 }
 //------------------------------->
@@ -51,6 +51,7 @@ a:visited {
 // Main Page Styling
 .logout-button .admin-link {
   font-family: "Cardo", serif;
+  cursor: pointer;
 }
 
 .admin-link {
