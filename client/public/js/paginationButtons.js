@@ -43,6 +43,7 @@ function generateQuestionsAndAnswers(itemsArray, firstIndex, lastIndex) {
     const questionsAndAnswers = 
     `<div class="question-box" data-question="${index + 1}">
       <a class="email-link" href="">Ask about this question</a>
+      ${isAdmin ? showAdminButtons() : ""}
       <h2 class="question">${listItem.question}</h2>
     </div>
     <div class="answer-box close" data-question="${listItem.questionNumber}">
@@ -63,4 +64,14 @@ function generateQuestionsAndAnswers(itemsArray, firstIndex, lastIndex) {
     $(".answer-box").addClass("close");
     selectedAnswer.removeClass("close");
   });
+}
+
+function showAdminButtons() {
+  return (
+    `<div class="admin-buttons">
+      <button class="edit-button">Edit</button>
+      <button class="delete-button">Delete</button>
+    </div>
+    `
+  )
 }
