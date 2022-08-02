@@ -1,6 +1,6 @@
 document.getElementById("login-form").addEventListener("submit", async(e) => {
   e.preventDefault();
-  const adminAttempt = $("#username").val();
+  const adminAttempt = $("#username").val().toLowerCase();
   const passwordAttempt = $("#password").val();
   try {
       await $.ajax({
