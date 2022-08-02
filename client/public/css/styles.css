@@ -114,9 +114,10 @@ a:visited, .admin-link {
 
 button {
   font-family: "Cardo", serif;
+  cursor: pointer;
 }
 
-.logout-button .admin-link {
+.logout-button, .admin-link {
   cursor: pointer;
 }
 
@@ -184,7 +185,6 @@ label[for=search] {
   gap: 2rem;
 }
 .pagination-container .button {
-  cursor: pointer;
   background-color: white;
   border: 1px solid #2533b6;
   border-radius: 5px;
@@ -306,6 +306,18 @@ label[for=search] {
   margin-bottom: 3rem;
 }
 
+.add-question-container {
+  width: max-content;
+  margin: 0 auto 3rem auto;
+}
+.add-question-container a {
+  padding: 1rem;
+  font-size: clamp(1.6rem, 2vw, 2.4rem);
+  background-color: transparent;
+  color: #2533b6;
+  border: none;
+}
+
 .question-box,
 .answer-box {
   margin: auto;
@@ -339,7 +351,6 @@ label[for=search] {
   padding: 0 1rem;
   background-color: transparent;
   border: none;
-  cursor: pointer;
   font-weight: 600;
   letter-spacing: 1.5px;
 }
