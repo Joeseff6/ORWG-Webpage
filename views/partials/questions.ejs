@@ -16,6 +16,11 @@
   <section class="questions-section">
     <article class="question-answer-container">
       <p>Click on a question to reveal the answer</p>
+      <% if (loggedIn) { %>
+        <div class="add-question-container">
+          <a class="add-question-link" href="">Add a question</a>
+        </div>
+      <% } %>
     </article>
   </section>
 </main>
