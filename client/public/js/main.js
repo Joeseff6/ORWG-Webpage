@@ -8,7 +8,6 @@ $(window).resize(() => {
     $(".sun").addClass("animate-sun");
   }, 500);
 });
-
 window.addEventListener("load", async () => {
   try {
     const questions = await fetchQuestions();
@@ -17,7 +16,6 @@ window.addEventListener("load", async () => {
     console.log(err);
   }
 })
-
 async function fetchQuestions() {
   try {
     const questions = await $.ajax({
@@ -30,7 +28,6 @@ async function fetchQuestions() {
     console.log(err);
   }
 }
-
 document.querySelector("#search").addEventListener("input",(e) => {
   clearTimeout(searchTimeoutId);
   const searchTerm = e.target.value;
