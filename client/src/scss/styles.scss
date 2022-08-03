@@ -145,6 +145,7 @@ label[for="search"] {
   display: grid;
   grid-template-columns: repeat(10, 1fr);
   gap: 0.5rem;
+  transition: opacity 0.50s linear;
   .button.page {
     width: clamp(30px, 5vw, 40px);
     aspect-ratio: 1 / 1;
@@ -271,6 +272,10 @@ label[for="search"] {
   text-align: center;
   font-size: clamp(variables.$normal-fs, 3vw, variables.$large-fs);
   margin-bottom: 3rem;
+}
+
+.question-answer-container {
+  transition: opacity 0.50s linear;
 }
 
 .add-question-container {

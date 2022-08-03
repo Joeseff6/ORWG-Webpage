@@ -7,6 +7,7 @@ export default function generatePaginationButtons(
     const newButton = `<button class="button page">${i}</button>`;
     $(".pagination-numbers").append(newButton);
   }
+  $(".pagination-numbers.hide").removeClass("hide");
   document.querySelector(".button.page").classList.add("active");
   generateQuestionsAndAnswers(itemsArray, 0, 10);
   $(".button.page").click((e) => {
@@ -37,9 +38,6 @@ function generateQuestionsAndAnswers(itemsArray, firstIndex, lastIndex) {
   let isAdmin = false;
   if (window.location.pathname === "/admin" ) isAdmin = true;
   itemsArray.slice(firstIndex, lastIndex).forEach((listItem, index) => {
-    // <% if (loggedIn) { %>
-    //   <h1><%= "Hello" %></h1>
-    // <% } %>
     const questionsAndAnswers = 
     `<div class="question-box" data-question="${listItem.questionNumber}">
       <a class="email-link" href="">Ask about this question</a>
@@ -56,6 +54,7 @@ function generateQuestionsAndAnswers(itemsArray, firstIndex, lastIndex) {
       window.location.pathname = `/question/${listItem._id}`
     })
   });
+  $(".question-answer-container.hide").removeClass("hide");
   $(".question-box").click(({ target }) => {
     if ($(target).is("button") || $(target).is("a")) {
       return;
