@@ -43,7 +43,7 @@ function generateQuestionsAndAnswers(itemsArray, firstIndex, lastIndex) {
     const questionsAndAnswers = 
     `<div class="question-box" data-question="${index + 1}">
       <a class="email-link" href="">Ask about this question</a>
-      ${isAdmin ? showAdminButtons() : ""}
+      ${isAdmin ? showAdminButtons(listItem.questionNumber) : ""}
       <h2 class="question">${listItem.question}</h2>
     </div>
     <div class="answer-box close" data-question="${listItem.questionNumber}">
@@ -52,6 +52,9 @@ function generateQuestionsAndAnswers(itemsArray, firstIndex, lastIndex) {
       }</h3>
     </div>`;
     $(".question-answer-container").append(questionsAndAnswers);
+    $(`.edit-button[data-question=${listItem.questionNumber}]`).click(() => {
+      window.location.pathname = `/admin/${listItem._id}`
+    })
   });
   $(".question-box").click(({ target }) => {
     let questionEl = $(target).is("div") ? target : target.closest(".question-box");
@@ -66,11 +69,11 @@ function generateQuestionsAndAnswers(itemsArray, firstIndex, lastIndex) {
   });
 }
 
-function showAdminButtons() {
+function showAdminButtons(questionNumber) {
   return (
     `<div class="admin-buttons">
-      <button class="edit-button">Edit</button>
-      <button class="delete-button">Delete</button>
+      <button class="edit-button" data-question="${questionNumber}">Edit</button>
+      <button class="delete-button" data-question="${questionNumber}">Delete</button>
     </div>
     `
   )
