@@ -12,7 +12,7 @@
 }
 
 .login-container {
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.5);
   width: clamp(35rem, 60%, 60rem);
   margin: auto;
   margin-top: 3rem;
@@ -20,6 +20,7 @@
   border: 2px solid gray;
   border-radius: 10px;
   text-align: center;
+  border: 2px solid #2533B6;
 }
 
 .error-box {
