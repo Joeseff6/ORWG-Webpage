@@ -9,12 +9,6 @@
   box-sizing: border-box;
 }
 
-// TODO: Delete outline rule below
-
-* {
-  // outline: 1px solid white;
-}
-
 html {
   font-size: 62.5%;
   font-family: "Cardo", serif;
@@ -282,7 +276,7 @@ label[for="search"] {
 .add-question-container {
   width: max-content;
   margin: 0 auto 3rem auto;
-  a {
+  .add-question-link {
     padding: 1rem;
     font-size: clamp(variables.$small-fs, 2vw, variables.$large-fs);
     background-color: transparent;
@@ -331,7 +325,7 @@ label[for="search"] {
   }
 }
 
-.edit-button {
+.edit-button, .add-question-link {
   color: #2533b6;
   background-image: linear-gradient(
     #2533b6,
@@ -347,7 +341,7 @@ label[for="search"] {
   );
 }
 
-.email-link, .admin-buttons button {
+.email-link, .admin-buttons button, .add-question-link {
   background-size: 0% 15%;
   background-repeat: no-repeat;
   background-position: 0 100%;
@@ -355,7 +349,7 @@ label[for="search"] {
   font-size: clamp(variables.$smallest-fs, 2vw, variables.$small-fs);
 }
 
-.email-link:hover, .admin-buttons button:hover  {
+.email-link:hover, .admin-buttons button:hover, .add-question-link:hover  {
   background-size: 100% 15%;
 }
 
