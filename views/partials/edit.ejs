@@ -2,7 +2,7 @@
 <form id="edit-form">
   <div class="question-editor">
     <label for="question">Edit Question:</label>
-    <textarea id="question" name="question"><%= question.question %></textarea>
+    <textarea id="question" name="question" required><%= question.question %></textarea>
   </div>
   <div class="answer-editor">
     <label for="answer">Edit Answer:</label>
@@ -10,3 +10,5 @@
   </div>
   <button>Submit Changes</button>
 </form>
+
+<script src="/edit.js"></script>
