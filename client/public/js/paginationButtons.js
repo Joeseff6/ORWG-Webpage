@@ -37,7 +37,7 @@ function generateQuestionsAndAnswers(itemsArray, firstIndex, lastIndex) {
   $(".answer-box").remove();
   let isAdmin = false;
   if (window.location.pathname === "/admin" ) isAdmin = true;
-  itemsArray.slice(firstIndex, lastIndex).forEach((listItem, index) => {
+  itemsArray.slice(firstIndex, lastIndex).forEach((listItem) => {
     const questionsAndAnswers = 
     `<div class="question-box" data-question="${listItem.questionNumber}">
       <a class="email-link" href="">Ask about this question</a>
@@ -52,6 +52,9 @@ function generateQuestionsAndAnswers(itemsArray, firstIndex, lastIndex) {
     $(".question-answer-container").append(questionsAndAnswers);
     $(`.edit-button[data-question=${listItem.questionNumber}]`).click(() => {
       window.location.pathname = `/question/${listItem._id}`
+    })
+    $(`.delete-button[data-question=${listItem.questionNumber}]`).click(() => {
+      displayModal(listItem.question);
     })
   });
   $(".question-answer-container.hide").removeClass("hide");
@@ -81,3 +84,13 @@ function showAdminButtons(questionNumber) {
     `
   )
 }
+function displayModal(question) {
+  document.querySelector(".delete-modal-question").innerText = `"${question}"`;
+  document.querySelector(".delete-modal").showModal();
+}
+
+function closeModal() {
+  document.querySelector(".delete-modal").close();
+}
+
+$(".delete-modal-cancel").click(closeModal);
