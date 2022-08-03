@@ -12,8 +12,16 @@ document.getElementById("login-form").addEventListener("submit", async(e) => {
       }
     })
     window.location.replace("/admin");
-  } catch({ responseJSON }) {
+  } catch ({ responseJSON }) {
+    $(".error-box").remove();
+    const errorEl = 
+    `<div class="error-box hide">
+      <p class="error-message"></p>
+    </div>`;
+    $("#login-form").prepend(errorEl);
     $(".error-message").text(responseJSON.message);
-    $(".error-box").removeClass("hide");
+    setTimeout(() => {
+      $(".error-box.hide").removeClass("hide");
+    }, 100);
   }
 })
