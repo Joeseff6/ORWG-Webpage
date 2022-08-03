@@ -39,9 +39,9 @@ function generateQuestionsAndAnswers(itemsArray, firstIndex, lastIndex) {
   if (window.location.pathname === "/admin" ) isAdmin = true;
   itemsArray.slice(firstIndex, lastIndex).forEach((listItem) => {
     const questionsAndAnswers = 
-    `<div class="question-box" data-question="${listItem.questionNumber}">
+    `<div class="question-box" data-question="${listItem.questionNumber}" data-id=${listItem._id}>
       <a class="email-link" href="">Ask about this question</a>
-      ${isAdmin ? showAdminButtons(listItem.questionNumber) : ""}
+      ${isAdmin ? showAdminButtons(listItem.questionNumber, listItem._id) : ""}
       <h2 class="question">${listItem.question}</h2>
     </div>
     <div class="answer-box close" data-question="${listItem.questionNumber}">
@@ -50,13 +50,32 @@ function generateQuestionsAndAnswers(itemsArray, firstIndex, lastIndex) {
       }</h3>
     </div>`;
     $(".question-answer-container").append(questionsAndAnswers);
-    $(`.edit-button[data-question=${listItem.questionNumber}]`).click(() => {
-      window.location.pathname = `/question/${listItem._id}`
-    })
-    $(`.delete-button[data-question=${listItem.questionNumber}]`).click(() => {
-      displayModal(listItem.question);
-    })
   });
+  $(`.edit-button`).click((e) => {
+    window.location.pathname = `/question/${e.target.dataset.id}`
+  });
+  $(`.delete-button`).click((e) => {
+    const id = e.target.dataset.id;
+    const question = document.querySelector(`.question-box[data-id="${id}"] .question`).innerText;
+    displayModal(id, question);
+  });
+  document.querySelector(".delete-modal-button").addEventListener("click", async(e) => {
+    try {
+      const id = e.target.dataset.id
+      await $.ajax({
+        url: `/api/questions/${id}`,
+        method: "DELETE",
+      });
+      $(".delete-modal button").remove();
+      document.querySelector(".delete-modal-message").innerText = "Question has been deleted";
+      document.querySelector(".delete-modal-question").innerText = "";
+      setTimeout(() => {
+        window.location.reload();
+      }, 1000)
+    } catch(err) {
+      console.log(err.message);
+    }
+  })
   $(".question-answer-container.hide").removeClass("hide");
   $(".question-box").click(({ target }) => {
     if ($(target).is("button") || $(target).is("a")) {
@@ -75,17 +94,18 @@ function generateQuestionsAndAnswers(itemsArray, firstIndex, lastIndex) {
   });
 }
 
-function showAdminButtons(questionNumber) {
+function showAdminButtons(questionNumber, id) {
   return (
     `<div class="admin-buttons">
-      <button class="edit-button" data-question="${questionNumber}">Edit</button>
-      <button class="delete-button" data-question="${questionNumber}">Delete</button>
+      <button class="edit-button" data-question="${questionNumber}" data-id="${id}">Edit</button>
+      <button class="delete-button" data-question="${questionNumber}" data-id="${id}">Delete</button>
     </div>
     `
   )
 }
-function displayModal(question) {
+function displayModal(id, question) {
   document.querySelector(".delete-modal-question").innerText = `"${question}"`;
+  document.querySelector(".delete-modal-button").dataset.id = id;
   document.querySelector(".delete-modal").showModal();
 }
 
@@ -94,3 +114,4 @@ function closeModal() {
 }
 
 $(".delete-modal-cancel").click(closeModal);
+
