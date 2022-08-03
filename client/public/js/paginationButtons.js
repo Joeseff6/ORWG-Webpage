@@ -57,15 +57,19 @@ function generateQuestionsAndAnswers(itemsArray, firstIndex, lastIndex) {
     })
   });
   $(".question-box").click(({ target }) => {
-    let questionEl = $(target).is("div") ? target : target.closest(".question-box");
-    const questionNumber = questionEl.dataset.question;
-    const selectedAnswer = $(`.answer-box[data-question=${questionNumber}]`)
-    if (!selectedAnswer.hasClass("close")) {
-      $(`.answer-box[data-question=${questionNumber}]`).addClass("close");
+    if ($(target).is("button") || $(target).is("a")) {
       return;
+    } else {
+      let questionEl = $(target).is("div") ? target : target.closest(".question-box");
+      const questionNumber = questionEl.dataset.question;
+      const selectedAnswer = $(`.answer-box[data-question=${questionNumber}]`)
+      if (!selectedAnswer.hasClass("close")) {
+        $(`.answer-box[data-question=${questionNumber}]`).addClass("close");
+        return;
+      }
+      $(".answer-box").addClass("close");
+      selectedAnswer.removeClass("close");
     }
-    $(".answer-box").addClass("close");
-    selectedAnswer.removeClass("close");
   });
 }
 
