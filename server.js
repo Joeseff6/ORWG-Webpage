@@ -6,14 +6,12 @@ const MongoStore = require("connect-mongo");
 const mongoose = require("mongoose");
 const path = require("path");
 const routes = require("./routes");
-const db = require("./models");
 const app = express();
 const PORT = 4000;
 const sess = {
   secret: process.env.SESSION_SECRET,
   cookie: {
     maxAge: 3600000,
-    sameSite: "none",
   },
   resave: false,
   saveUninitialized: false,
