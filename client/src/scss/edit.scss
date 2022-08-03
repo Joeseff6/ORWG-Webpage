@@ -1,0 +1,36 @@
+@use "variables";
+
+.edit-header, #edit-form label {
+  text-align: center;
+}
+
+.edit-header {
+  margin: 2rem;
+  font-size: clamp(variables.$normal-fs, 3vw, variables.$largest-fs);
+}
+
+#edit-form {
+  margin: auto;
+  gap: 2rem;
+  width: clamp(26rem, 90%, 60rem);
+  background-color: rgba($color: white, $alpha: 0.50);
+  padding: 3rem 2rem;
+  border: 2px solid #2533b6;
+  border-radius: 1rem;
+  label {
+    display: block;
+    margin: 1rem;
+    font-size: clamp(variables.$normal-fs, 3vw, variables.$large-fs);
+  }
+  fieldset {
+    border: none;
+  }
+} 
+
+fieldset, fieldset textarea {
+  width: 100%;
+} 
+
+.back-link {
+  font-size: clamp(variables.$small-fs, 2vw, variables.$large-fs);
+}

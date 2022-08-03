@@ -1,5 +1,6 @@
 @use "variables";
 @use "login";
+@use "edit";
 @import url("https://fonts.googleapis.com/css2?family=Cardo&display=swap");
 //Global Styles
 *,
@@ -52,10 +53,18 @@ button {
   cursor: pointer;
 }
 
+input, textarea {
+  font-family: "Cardo", serif;
+}
+
 textarea {
   resize: none;
   width: 50%;
-  padding: 1rem
+  padding: 1rem;
+  transition: background-color 0.5s linear;
+  border: 1px solid #2533b6;
+  border-radius: 1rem;
+  font-size: clamp(variables.$small-fs, 2vw, variables.$normal-fs);
 }
 //------------------------------->
 
@@ -116,7 +125,7 @@ label[for="search"] {
   transition: background-color 0.5s linear;
 }
 
-#search:focus {
+#search:focus, textarea:focus {
   background-color: hsl(188, 100%, 85%);
   outline: 1px solid #2533b6;
 }

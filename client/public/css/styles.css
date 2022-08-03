@@ -77,6 +77,41 @@ button[type=submit] {
   color: #2533B6;
 }
 
+.edit-header, #edit-form label {
+  text-align: center;
+}
+
+.edit-header {
+  margin: 2rem;
+  font-size: clamp(2rem, 3vw, 3.2rem);
+}
+
+#edit-form {
+  margin: auto;
+  gap: 2rem;
+  width: clamp(26rem, 90%, 60rem);
+  background-color: rgba(255, 255, 255, 0.5);
+  padding: 3rem 2rem;
+  border: 2px solid #2533b6;
+  border-radius: 1rem;
+}
+#edit-form label {
+  display: block;
+  margin: 1rem;
+  font-size: clamp(2rem, 3vw, 2.4rem);
+}
+#edit-form fieldset {
+  border: none;
+}
+
+fieldset, fieldset textarea {
+  width: 100%;
+}
+
+.back-link {
+  font-size: clamp(1.6rem, 2vw, 2.4rem);
+}
+
 *,
 *::before,
 *::after {
@@ -117,10 +152,18 @@ button {
   cursor: pointer;
 }
 
+input, textarea {
+  font-family: "Cardo", serif;
+}
+
 textarea {
   resize: none;
   width: 50%;
   padding: 1rem;
+  transition: background-color 0.5s linear;
+  border: 1px solid #2533b6;
+  border-radius: 1rem;
+  font-size: clamp(1.6rem, 2vw, 2rem);
 }
 
 .logout-button, .admin-link {
@@ -179,7 +222,7 @@ label[for=search] {
   transition: background-color 0.5s linear;
 }
 
-#search:focus {
+#search:focus, textarea:focus {
   background-color: hsl(188deg, 100%, 85%);
   outline: 1px solid #2533b6;
 }
