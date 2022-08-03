@@ -51,6 +51,12 @@ button {
   font-family: "Cardo", serif;
   cursor: pointer;
 }
+
+textarea {
+  resize: none;
+  width: 50%;
+  padding: 1rem
+}
 //------------------------------->
 
 // Main Page Styling
