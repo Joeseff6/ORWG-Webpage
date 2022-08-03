@@ -51,14 +51,37 @@ function generateQuestionsAndAnswers(itemsArray, firstIndex, lastIndex) {
     </div>`;
     $(".question-answer-container").append(questionsAndAnswers);
   });
+
+  // Open and close answer functionality
+  $(".question-box").click(({ target }) => {
+    if ($(target).is("button") || $(target).is("a")) {
+      return;
+    } else {
+      let questionEl = $(target).is("div") ? target : target.closest(".question-box");
+      const questionNumber = questionEl.dataset.question;
+      const selectedAnswer = $(`.answer-box[data-question=${questionNumber}]`)
+      if (!selectedAnswer.hasClass("close")) {
+        $(`.answer-box[data-question=${questionNumber}]`).addClass("close");
+        return;
+      }
+      $(".answer-box").addClass("close");
+      selectedAnswer.removeClass("close");
+    }
+  });
+
+  // Edit button functionality
   $(`.edit-button`).click((e) => {
     window.location.pathname = `/question/${e.target.dataset.id}`
   });
+
+  // Delete button functionality (open modal)
   $(`.delete-button`).click((e) => {
     const id = e.target.dataset.id;
     const question = document.querySelector(`.question-box[data-id="${id}"] .question`).innerText;
     displayModal(id, question);
   });
+
+  // Delete question when delete button is clicked
   document.querySelector(".delete-modal-button").addEventListener("click", async(e) => {
     try {
       const id = e.target.dataset.id
@@ -77,21 +100,6 @@ function generateQuestionsAndAnswers(itemsArray, firstIndex, lastIndex) {
     }
   })
   $(".question-answer-container.hide").removeClass("hide");
-  $(".question-box").click(({ target }) => {
-    if ($(target).is("button") || $(target).is("a")) {
-      return;
-    } else {
-      let questionEl = $(target).is("div") ? target : target.closest(".question-box");
-      const questionNumber = questionEl.dataset.question;
-      const selectedAnswer = $(`.answer-box[data-question=${questionNumber}]`)
-      if (!selectedAnswer.hasClass("close")) {
-        $(`.answer-box[data-question=${questionNumber}]`).addClass("close");
-        return;
-      }
-      $(".answer-box").addClass("close");
-      selectedAnswer.removeClass("close");
-    }
-  });
 }
 
 function showAdminButtons(questionNumber, id) {
@@ -103,6 +111,7 @@ function showAdminButtons(questionNumber, id) {
     `
   )
 }
+
 function displayModal(id, question) {
   document.querySelector(".delete-modal-question").innerText = `"${question}"`;
   document.querySelector(".delete-modal-button").dataset.id = id;
