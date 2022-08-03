@@ -1,15 +1,15 @@
 <h2 class="edit-header">Edit questions and answers here</h2>
-<form id="edit-form">
-  <div class="question-editor">
+<form id="edit-form" class="flex-col-center">
+  <fieldset class="question-editor">
     <label for="question">Edit Question:</label>
-    <textarea id="question" name="question" placeholder="Please provide a question" required><%= question.question %></textarea>
-  </div>
-  <div class="answer-editor">
+    <textarea id="question" name="question" placeholder="Please provide a question" rows="4" required><%= question.question %></textarea>
+  </fieldset>
+  <fieldset class="answer-editor">
     <label for="answer">Edit Answer:</label>
-    <textarea id="answer" name="answer" placeholder="Leave blank if the answer is unknown"><%= question.answer %></textarea>
-  </div>
-  <button>Submit Changes</button>
+    <textarea id="answer" name="answer" placeholder="Leave blank if the answer is unknown" rows="4"><%= question.answer %></textarea>
+  </fieldset>
+  <button type="submit" class="submit-edit-button">Submit Changes</button>
+  <a class="back-link" href="/admin">Go back</a>
 </form>
-<a class="back-link" href="/admin">Go back</a>
 
 <script src="/edit.js"></script>
