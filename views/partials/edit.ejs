@@ -2,11 +2,11 @@
 <form id="edit-form" class="flex-col-center">
   <fieldset class="question-editor">
     <label for="question">Edit Question:</label>
-    <textarea id="question" name="question" placeholder="Please provide a question" rows="4" required><%= question.question %></textarea>
+    <textarea id="question" name="question" placeholder="Please provide a question" rows="3" required><%= question.question %></textarea>
   </fieldset>
   <fieldset class="answer-editor">
     <label for="answer">Edit Answer:</label>
-    <textarea id="answer" name="answer" placeholder="Leave blank if the answer is unknown" rows="4"><%= question.answer %></textarea>
+    <textarea id="answer" name="answer" placeholder="Leave blank if the answer is unknown" rows="3"><%= question.answer %></textarea>
   </fieldset>
   <button type="submit" class="submit-edit-button">Submit Changes</button>
   <a class="back-link" href="/admin">Go back</a>
