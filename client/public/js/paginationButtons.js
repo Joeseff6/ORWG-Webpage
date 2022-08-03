@@ -53,7 +53,7 @@ function generateQuestionsAndAnswers(itemsArray, firstIndex, lastIndex) {
     </div>`;
     $(".question-answer-container").append(questionsAndAnswers);
     $(`.edit-button[data-question=${listItem.questionNumber}]`).click(() => {
-      window.location.pathname = `/admin/${listItem._id}`
+      window.location.pathname = `/question/${listItem._id}`
     })
   });
   $(".question-box").click(({ target }) => {

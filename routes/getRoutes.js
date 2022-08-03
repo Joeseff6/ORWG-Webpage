@@ -23,7 +23,7 @@ router.get("/admin", isNotLogged, async (req, res) => {
   }
 });
 
-router.get("/admin/:id", isNotLogged, async (req, res) => {
+router.get("/question/:id", isNotLogged, async (req, res) => {
   try {
     let question = await db.Questions.findById(req.params.id);
     console.log(question);
