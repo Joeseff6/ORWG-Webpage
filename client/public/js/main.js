@@ -52,9 +52,6 @@ document.querySelector("#search").addEventListener("input",(e) => {
       if (!formattedResults.length) {
         generatePaginationButtons(questions, 10);
       } else {
-        formattedResults.sort((firstObject, secondObject) => {
-          return Number(firstObject.questionNumber) - Number(secondObject.questionNumber);
-        });
         generatePaginationButtons(formattedResults, 10);
       }
     } catch(err) {
