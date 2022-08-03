@@ -44,7 +44,8 @@
 #login-form label input {
   padding: 0.5rem 1rem;
   margin-left: 1rem;
-  font-size: clamp(1.2rem, 1.5vw, 1.6rem);
+  font-weight: 600;
+  letter-spacing: 1.5px;
   border: 1px solid #2533B6;
   border-radius: 5px;
 }
