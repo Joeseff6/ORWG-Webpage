@@ -41,7 +41,7 @@ function generateQuestionsAndAnswers(itemsArray, firstIndex, lastIndex) {
     //   <h1><%= "Hello" %></h1>
     // <% } %>
     const questionsAndAnswers = 
-    `<div class="question-box" data-question="${index + 1}">
+    `<div class="question-box" data-question="${listItem.questionNumber}">
       <a class="email-link" href="">Ask about this question</a>
       ${isAdmin ? showAdminButtons(listItem.questionNumber) : ""}
       <h2 class="question">${listItem.question}</h2>
