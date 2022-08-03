@@ -455,4 +455,44 @@ h3 {
   font-size: clamp(0.8rem, 2vw, 2rem);
 }
 
+dialog {
+  margin: auto;
+  padding: 4rem;
+  background-color: hsla(188deg, 100%, 85%, 0.95);
+  color: #2533b6;
+  border: 2px solid #2533b6;
+  border-radius: 1rem;
+  text-align: center;
+  font-size: clamp(1.6rem, 2vw, 2.4rem);
+}
+dialog * {
+  margin: 2rem 0;
+}
+dialog .delete-modal-question {
+  font-style: italic;
+}
+
+.delete-modal-button-container {
+  width: max-content;
+  margin: auto;
+  display: flex;
+  gap: 4rem;
+}
+.delete-modal-button-container button {
+  padding: 1rem;
+  font-size: clamp(1.2rem, 1.5vw, 1.6rem);
+  border-radius: 100vmax;
+  border: 1px solid rgb(105, 105, 105);
+}
+
+.delete-modal-button {
+  background-color: hsl(0deg, 100%, 67%);
+  color: white;
+}
+
+.delete-modal-cancel {
+  background-color: #2533b6;
+  color: white;
+}
+
 /*# sourceMappingURL=styles.css.map */
