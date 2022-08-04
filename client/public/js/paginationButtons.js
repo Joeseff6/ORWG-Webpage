@@ -82,25 +82,24 @@ function generateQuestionsAndAnswers(itemsArray, firstIndex, lastIndex) {
   });
 
   // Delete question when delete button is clicked
-  if (document.querySelector(".delete-modal-button")) {
-    document.querySelector(".delete-modal-button").addEventListener("click", async(e) => {
-      try {
-        const id = e.target.dataset.id
-        await $.ajax({
-          url: `/api/questions/${id}`,
-          method: "DELETE",
-        });
-        $(".delete-modal button").remove();
-        document.querySelector(".delete-modal-message").innerText = "Question has been deleted";
-        document.querySelector(".delete-modal-question").innerText = "";
-        setTimeout(() => {
-          window.location.reload();
-        }, 1000)
-      } catch(err) {
-        console.log(err.message);
-      }
-    })
-  }
+  if (!document.querySelector(".delete-modal-button")) return;
+  document.querySelector(".delete-modal-button").addEventListener("click", async(e) => {
+    try {
+      const id = e.target.dataset.id
+      await $.ajax({
+        url: `/api/questions/${id}`,
+        method: "DELETE",
+      });
+      $(".delete-modal button").remove();
+      document.querySelector(".delete-modal-message").innerText = "Question has been deleted";
+      document.querySelector(".delete-modal-question").innerText = "";
+      setTimeout(() => {
+        window.location.reload();
+      }, 1000)
+    } catch(err) {
+      console.log(err.message);
+    }
+  })
   $(".question-answer-container.hide").removeClass("hide");
 }
 
