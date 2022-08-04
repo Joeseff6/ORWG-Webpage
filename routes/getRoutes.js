@@ -33,4 +33,8 @@ router.get("/question/:id", isNotLogged, async (req, res) => {
   }
 });
 
+router.get("/admin/add", isNotLogged, (req, res) => {
+  res.render("partials/add");
+})
+
 module.exports = router;
