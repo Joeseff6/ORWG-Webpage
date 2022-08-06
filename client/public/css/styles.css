@@ -79,7 +79,7 @@ button[type=submit] {
   color: #2533B6;
 }
 
-.add-edit-header, #edit-form label {
+.add-edit-header, #edit-form label, #add-form label {
   text-align: center;
 }
 
@@ -88,7 +88,7 @@ button[type=submit] {
   font-size: clamp(2rem, 3vw, 3.2rem);
 }
 
-#add-edit-form {
+#add-form, #edit-form {
   margin: auto;
   gap: 2rem;
   width: clamp(26rem, 90%, 60rem);
@@ -97,12 +97,12 @@ button[type=submit] {
   border: 2px solid #2533b6;
   border-radius: 1rem;
 }
-#add-edit-form label {
+#add-form label, #edit-form label {
   display: block;
   margin: 1rem;
   font-size: clamp(2rem, 3vw, 2.4rem);
 }
-#add-edit-form fieldset {
+#add-form fieldset, #edit-form fieldset {
   border: none;
 }
 
