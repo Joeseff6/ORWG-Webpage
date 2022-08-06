@@ -5,7 +5,6 @@ const bcrypt = require("bcryptjs");
 async function initAdmin() {
   try {
     const admin = await db.Admin.findOne();
-    console.log(admin)
     if (admin) return;
     console.log("Admin not found. Initializing admin now.");
     const adminUsername = process.env.MONGO_ADMIN_PASSWORD || process.env.ADMIN_USERNAME;
