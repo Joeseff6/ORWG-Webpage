@@ -1,4 +1,4 @@
-document.getElementById("edit-form").addEventListener("submit", async(e) => {
+document.getElementById("add-edit-form").addEventListener("submit", async(e) => {
   e.preventDefault();
   const question = $("#question").val();
   const answer = $("#answer").val();
