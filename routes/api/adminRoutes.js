@@ -9,7 +9,7 @@ async function initAdminPassword() {
       return;
     } else {
       console.log("Admin password not found. Generating now.");
-      let adminPassword = process.env.ADMIN_PASSWORD;
+      let adminPassword = process.env.MONGO_ADMIN_PASSWORD || process.env.ADMIN_PASSWORD;
       bcrypt.genSalt(10, (err, salt) => {
         if (err) {
           console.log(err.message);
