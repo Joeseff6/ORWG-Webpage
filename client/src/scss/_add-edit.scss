@@ -1,15 +1,15 @@
 @use "variables";
 
-.edit-header, #edit-form label {
+.add-edit-header, #edit-form label {
   text-align: center;
 }
 
-.edit-header {
+.add-edit-header {
   margin: 2rem;
   font-size: clamp(variables.$normal-fs, 3vw, variables.$largest-fs);
 }
 
-#edit-form {
+#add-edit-form {
   margin: auto;
   gap: 2rem;
   width: clamp(26rem, 90%, 60rem);
