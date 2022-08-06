@@ -1,22 +1,39 @@
-document.getElementById("add-edit-form").addEventListener("submit", async(e) => {
-  e.preventDefault();
-  const question = $("#question").val();
-  const answer = $("#answer").val();
-  console.log(capitalizedString(question))
-  console.log(answer)
-
-  const id = window.location.pathname.split("/")[2];
-  await $.ajax({
-    url: `/api/questions/${id}`,
-    method: "PUT",
-    dataType: "json",
-    data: {
-      question: question,
-      answer: answer
-    }
+if (document.getElementById("edit-form")) {
+  document.getElementById("edit-form").addEventListener("submit", async(e) => {
+    e.preventDefault();
+    const question = $("#question").val();
+    const answer = $("#answer").val();
+    const id = window.location.pathname.split("/")[2];
+    await $.ajax({
+      url: `/api/questions/${id}`,
+      method: "PUT",
+      dataType: "json",
+      data: {
+        question: question,
+        answer: answer
+      }
+    });
+    window.location.pathname = "/admin";
   });
-  window.location.pathname = "/admin";
-})
+}
+
+if (document.getElementById("add-form")) {
+  document.getElementById("add-form").addEventListener("submit", async(e) => {
+    e.preventDefault();
+    const question = $("#question").val();
+    const answer = $("#answer").val();
+    await $.ajax({
+      url: `/api/questions/`,
+      method: "POST",
+      dataType: "json",
+      data: {
+        question: question,
+        answer: answer
+      }
+    });
+    window.location.pathname = "/admin";
+  });
+}
 
 function capitalizedString(string) {
   if (!string) return "";
