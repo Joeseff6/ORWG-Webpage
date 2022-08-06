@@ -5,6 +5,7 @@ const bcrypt = require("bcryptjs");
 async function initAdminPassword() {
   try {
     const admin = await db.Admin.findOne();
+    console.log(admin)
     if (admin.adminPassword) {
       return;
     } else {
