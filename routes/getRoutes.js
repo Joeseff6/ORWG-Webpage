@@ -26,7 +26,6 @@ router.get("/admin", isNotLogged, async (req, res) => {
 router.get("/question/:id", isNotLogged, async (req, res) => {
   try {
     let question = await db.Questions.findById(req.params.id);
-    console.log(question);
     res.render("partials/edit", { question: question });
 } catch (err) {
     console.log(err.message);
