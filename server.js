@@ -35,7 +35,7 @@ app.use(express.static(path.join(__dirname, "client", "public", "js")));
 
 app.use(routes);
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb://127.0.0.1/orwgDB", {
+mongoose.connect(process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/orwgDB", {
   useUnifiedTopology: true,
   useNewUrlParser: true,
 });
