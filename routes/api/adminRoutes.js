@@ -7,7 +7,7 @@ async function initAdmin() {
     const admin = await db.Admin.findOne();
     if (admin) return;
     console.log("Admin not found. Initializing admin now.");
-    const adminUsername = process.env.MONGO_ADMIN_PASSWORD || process.env.ADMIN_USERNAME;
+    const adminUsername = process.env.MONGO_ADMIN_USERNAME || process.env.ADMIN_USERNAME;
     const adminPassword = process.env.MONGO_ADMIN_PASSWORD || process.env.ADMIN_PASSWORD;
     bcrypt.genSalt(10, (err, salt) => {
       if (err) {
