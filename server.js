@@ -37,9 +37,11 @@ app.use(routes);
 if (process.env.MONGODB_URI) {
   console.log(process.env.MONGODB_URI)
 }
-mongoose.connect(process.env.MONGODB_URI || process.env.MONGO_HEROKU_CONNECTION_URI, {
+mongoose.connect(process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/orwgDB", {
   useUnifiedTopology: true,
   useNewUrlParser: true,
+}).then(() => {
+  console.log("connected to database");
 });
 
 app.listen(PORT, () => {
