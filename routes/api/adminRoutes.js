@@ -2,38 +2,36 @@ const router = require("express").Router();
 const db = require("../../models");
 const bcrypt = require("bcryptjs");
 
-async function initAdminPassword() {
+async function initAdmin() {
   try {
     const admin = await db.Admin.findOne();
-    if (admin.adminPassword) {
-      return;
-    } else {
-      console.log("Admin password not found. Generating now.");
-      let adminPassword = process.env.ADMIN_PASSWORD;
-      bcrypt.genSalt(10, (err, salt) => {
-        if (err) {
-          console.log(err.message);
-        } else {
-          bcrypt.hash(adminPassword, salt, async (err, hash) => {
-            try {
-              await db.Admin.updateOne(
-                { adminUsername: process.env.ADMIN_USERNAME },
-                { $set: { adminPassword: hash } }
-              );
-              console.log("Admin password generated!");
-            } catch (err) {
-              console.log(err.message);
-            }
-          });
-        }
-      });
-    }
+    if (admin) return;
+    console.log("Admin not found. Initializing admin now.");
+    const adminUsername = process.env.MONGO_ADMIN_USERNAME || process.env.ADMIN_USERNAME;
+    const adminPassword = process.env.MONGO_ADMIN_PASSWORD || process.env.ADMIN_PASSWORD;
+    bcrypt.genSalt(10, (err, salt) => {
+      if (err) {
+        console.log(err.message);
+      } else {
+        bcrypt.hash(adminPassword, salt, async(err, hash) => {
+          try {
+            await db.Admin.create({
+              adminUsername: adminUsername,
+              adminPassword: hash,
+            })
+            console.log("Admin initialized!");
+          } catch (err) {
+            console.log(err.message);
+          }
+        });
+      }
+    });
   } catch (err) {
     console.log(err.message);
   }
 }
 
-initAdminPassword();
+initAdmin();
 
 router.post("/", async(req, res) => {
   try {

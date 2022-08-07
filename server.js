@@ -7,7 +7,7 @@ const mongoose = require("mongoose");
 const path = require("path");
 const routes = require("./routes");
 const app = express();
-const PORT = 4000;
+const PORT = process.env.PORT || 4000;
 const sess = {
   secret: process.env.SESSION_SECRET,
   cookie: {
@@ -34,8 +34,7 @@ app.use(express.static(path.join(__dirname, "client", "public", "css")));
 app.use(express.static(path.join(__dirname, "client", "public", "js")));
 
 app.use(routes);
-
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/orwgDB", {
+mongoose.connect(process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/orwgDB", {
   useUnifiedTopology: true,
   useNewUrlParser: true,
 });
