@@ -16,7 +16,7 @@ const sess = {
   resave: false,
   saveUninitialized: false,
   store: MongoStore.create({
-    mongoUrl: "mongodb://localhost/orwgDB",
+    mongoUrl: process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/orwgDB",
   }) 
 };
 if (app.get('env') === 'production') {
