@@ -37,7 +37,7 @@ app.use(routes);
 if (process.env.MONGODB_URI) {
   console.log(process.env.MONGODB_URI)
 }
-mongoose.connect(process.env.MONGODB_URI, {
+mongoose.connect(process.env.MONGODB_URI || process.env.MONGO_HEROKU_CONNECTION_URI, {
   useUnifiedTopology: true,
   useNewUrlParser: true,
 });
