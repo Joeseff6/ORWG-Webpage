@@ -3,18 +3,20 @@
 .login-header {
   text-align: center;
   padding-top: 7rem;
-  font-size: clamp(variables.$normal-fs, 3vw, variables.$largest-fs);
   gap: 2rem;
-}
-
-.login-header p {
-  font-weight: 800;
-  padding: 0 2rem;
+  h1 {
+    font-size: clamp(variables.$larger-fs, 3vw, variables.$largest-fs);
+  }
+  p {
+    font-weight: 800;
+    padding: 0 2rem;
+    font-size: clamp(variables.$large-fs, 3vw, variables.$largest-fs);
+  }
 }
 
 .login-container {
   background-color: rgba($color: white, $alpha: 0.50);
-  width: clamp(35rem, 60%, 60rem);
+  width: clamp(37.5rem, 60%, 65rem);
   margin: auto;
   margin-top: 3rem;
   padding: 5rem 1rem;
@@ -42,13 +44,14 @@
   margin-bottom: 3rem;
 }
 
-#login-form label input {
+#login-form input {
+  width: 90%;
   padding: 0.5rem 1rem;
-  margin-left: 1rem;
   font-weight: 400;
   letter-spacing: 1.5px;
   border: 1px solid #2533B6;
   border-radius: 5px;
+  justify-self: start;
 }
 
 button[type=submit] {
@@ -69,13 +72,20 @@ button[type=submit]:hover {
 }
 
 .error-box,
-#login-form label input,
+#login-form input,
 button[type=submit] {
   font-size: clamp(variables.$small-fs, 1.5vw, variables.$small-fs);
 }
 
 #login-form label,
 .login-container a {
-  font-size: clamp(variables.$small-fs, 2vw, variables.$large-fs);
+  font-size: clamp(variables.$normal-fs, 2vw, variables.$large-fs);
   color: #2533B6;
+}
+
+fieldset[name="admin-login-input"] {
+  border: none;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  row-gap: 3rem;
 }

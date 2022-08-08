@@ -2,18 +2,20 @@
 .login-header {
   text-align: center;
   padding-top: 7rem;
-  font-size: clamp(2rem, 3vw, 3.2rem);
   gap: 2rem;
 }
-
+.login-header h1 {
+  font-size: clamp(2.8rem, 3vw, 3.2rem);
+}
 .login-header p {
   font-weight: 800;
   padding: 0 2rem;
+  font-size: clamp(2.4rem, 3vw, 3.2rem);
 }
 
 .login-container {
   background-color: rgba(255, 255, 255, 0.5);
-  width: clamp(35rem, 60%, 60rem);
+  width: clamp(37.5rem, 60%, 65rem);
   margin: auto;
   margin-top: 3rem;
   padding: 5rem 1rem;
@@ -41,13 +43,14 @@
   margin-bottom: 3rem;
 }
 
-#login-form label input {
+#login-form input {
+  width: 90%;
   padding: 0.5rem 1rem;
-  margin-left: 1rem;
   font-weight: 400;
   letter-spacing: 1.5px;
   border: 1px solid #2533B6;
   border-radius: 5px;
+  justify-self: start;
 }
 
 button[type=submit] {
@@ -68,15 +71,22 @@ button[type=submit]:hover {
 }
 
 .error-box,
-#login-form label input,
+#login-form input,
 button[type=submit] {
   font-size: clamp(1.6rem, 1.5vw, 1.6rem);
 }
 
 #login-form label,
 .login-container a {
-  font-size: clamp(1.6rem, 2vw, 2.4rem);
+  font-size: clamp(2rem, 2vw, 2.4rem);
   color: #2533B6;
+}
+
+fieldset[name=admin-login-input] {
+  border: none;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  row-gap: 3rem;
 }
 
 .add-edit-header, #edit-form label, #add-form label {
