@@ -5,12 +5,13 @@
 <main>
   <div class="login-container">
     <form class="flex-col-center" id="login-form">
-      <label>Admin Username:
-        <input type="text" id="username" name="username" required/>
-      </label>
-      <label>Admin Password:
-        <input type="password" id="password" name="password" required/>
-      </label>
+      <fieldset form="login-form" name="admin-login-input">
+        <label for="username">Admin Username:</label>
+        <input type="text" id="username" name="username" required />
+        <label for="password">Admin Password:</label>
+        <input type="password" id="password" name="password" required />
+
+      </fieldset>
       <button type="submit">Login</button>
     </form>
     <a href="/">Go back to main page</a>
