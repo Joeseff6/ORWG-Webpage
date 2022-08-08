@@ -71,7 +71,7 @@ button[type=submit]:hover {
 .error-box,
 #login-form label input,
 button[type=submit] {
-  font-size: clamp(variables.$smaller-fs, 1.5vw, variables.$small-fs);
+  font-size: clamp(variables.$small-fs, 1.5vw, variables.$small-fs);
 }
 
 #login-form label,

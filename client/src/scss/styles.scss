@@ -22,7 +22,7 @@ html * {
 
 body {
   min-height: 100vh;
-  padding-top: 7rem;
+  padding: 7rem 0;
   background-image: radial-gradient(
     circle at center,
     white,
@@ -111,7 +111,7 @@ label[for="search"] {
   width: clamp(25rem, 50%, 40rem);
   color: #2533b6;
   font-family: "Cardo", serif;
-  font-size: clamp(variables.$smaller-fs, 3vw, variables.$normal-fs);
+  font-size: clamp(variables.$small-fs, 3vw, variables.$normal-fs);
   font-weight: 600;
   border: 1px solid gray;
   border-radius: 100vmax;
@@ -283,7 +283,7 @@ label[for="search"] {
   margin: 0 auto 3rem auto;
   .add-question-link {
     padding: 1rem;
-    font-size: clamp(variables.$small-fs, 2vw, variables.$large-fs);
+    font-size: clamp(variables.$normal-fs, 2vw, variables.$large-fs);
     background-color: transparent;
     color: #2533b6;
     border: none;
@@ -322,7 +322,7 @@ label[for="search"] {
   top: 0.5rem;
   left: 1rem;
   button {
-    padding: 0 1rem;
+    padding: 0 0.5rem;
     background-color: transparent;
     border: none;
     font-weight: 600;
@@ -351,7 +351,7 @@ label[for="search"] {
   background-repeat: no-repeat;
   background-position: 0 100%;
   transition: background-size 0.25s linear;
-  font-size: clamp(variables.$smallest-fs, 2vw, variables.$small-fs);
+  font-size: clamp(variables.$smaller-fs, 2vw, variables.$small-fs);
 }
 
 .email-link:hover, .admin-buttons button:hover, .add-question-link:hover  {
@@ -359,13 +359,13 @@ label[for="search"] {
 }
 
 .question {
-  font-size: clamp(variables.$smaller-fs, 2.5vw, variables.$large-fs);
+  font-size: clamp(variables.$small-fs, 2.5vw, variables.$large-fs);
 }
 
 .answer-box {
   padding: 1rem 2rem;
   margin-bottom: 2rem;
-  width: clamp(20rem, 70%, 75rem);
+  width: clamp(29rem, 75%, 75rem);
   background-color: #fcf4d9;
   background-image: url("/images/Scroll.jpg");
   background-position: 100% 0%;
@@ -377,7 +377,7 @@ label[for="search"] {
 }
 
 h3 {
-  font-size: clamp(variables.$smallest-fs, 2vw, variables.$normal-fs);
+  font-size: clamp(variables.$smaller-fs, 2vw, variables.$normal-fs);
 }
 
 //------------------------------->

@@ -70,7 +70,7 @@ button[type=submit]:hover {
 .error-box,
 #login-form label input,
 button[type=submit] {
-  font-size: clamp(1.2rem, 1.5vw, 1.6rem);
+  font-size: clamp(1.6rem, 1.5vw, 1.6rem);
 }
 
 #login-form label,
@@ -133,7 +133,7 @@ html * {
 
 body {
   min-height: 100vh;
-  padding-top: 7rem;
+  padding: 7rem 0;
   background-image: radial-gradient(circle at center, white, hsl(192deg, 100%, 50%));
   background-size: 200% 200%;
   background-position: 50% 10%;
@@ -216,7 +216,7 @@ label[for=search] {
   width: clamp(25rem, 50%, 40rem);
   color: #2533b6;
   font-family: "Cardo", serif;
-  font-size: clamp(1.2rem, 3vw, 2rem);
+  font-size: clamp(1.6rem, 3vw, 2rem);
   font-weight: 600;
   border: 1px solid gray;
   border-radius: 100vmax;
@@ -368,7 +368,7 @@ label[for=search] {
 }
 .add-question-container .add-question-link {
   padding: 1rem;
-  font-size: clamp(1.6rem, 2vw, 2.4rem);
+  font-size: clamp(2rem, 2vw, 2.4rem);
   background-color: transparent;
   color: #2533b6;
   border: none;
@@ -404,7 +404,7 @@ label[for=search] {
   left: 1rem;
 }
 .admin-buttons button {
-  padding: 0 1rem;
+  padding: 0 0.5rem;
   background-color: transparent;
   border: none;
   font-weight: 600;
@@ -426,7 +426,7 @@ label[for=search] {
   background-repeat: no-repeat;
   background-position: 0 100%;
   transition: background-size 0.25s linear;
-  font-size: clamp(0.8rem, 2vw, 1.6rem);
+  font-size: clamp(1.2rem, 2vw, 1.6rem);
 }
 
 .email-link:hover, .admin-buttons button:hover, .add-question-link:hover {
@@ -434,13 +434,13 @@ label[for=search] {
 }
 
 .question {
-  font-size: clamp(1.2rem, 2.5vw, 2.4rem);
+  font-size: clamp(1.6rem, 2.5vw, 2.4rem);
 }
 
 .answer-box {
   padding: 1rem 2rem;
   margin-bottom: 2rem;
-  width: clamp(20rem, 70%, 75rem);
+  width: clamp(29rem, 75%, 75rem);
   background-color: #fcf4d9;
   background-image: url("/images/Scroll.jpg");
   background-position: 100% 0%;
@@ -452,7 +452,7 @@ label[for=search] {
 }
 
 h3 {
-  font-size: clamp(0.8rem, 2vw, 2rem);
+  font-size: clamp(1.2rem, 2vw, 2rem);
 }
 
 dialog {
